@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/dc/dev/NN/build",
+  "command": "/usr/bin/g++-5    -I/home/dc/dev/NN/./include  -g   -o CMakeFiles/NN.dir/src/Main.cpp.o -c /home/dc/dev/NN/src/Main.cpp",
+  "file": "/home/dc/dev/NN/src/Main.cpp"
+},
+{
+  "directory": "/home/dc/dev/NN/build",
+  "command": "/usr/bin/g++-5    -I/home/dc/dev/NN/./include  -g   -o CMakeFiles/NN.dir/src/NN.cpp.o -c /home/dc/dev/NN/src/NN.cpp",
+  "file": "/home/dc/dev/NN/src/NN.cpp"
+},
+{
+  "directory": "/home/dc/dev/NN/build",
+  "command": "/usr/bin/g++-5    -I/home/dc/dev/NN/./include  -g   -o CMakeFiles/NN.dir/src/Layer.cpp.o -c /home/dc/dev/NN/src/Layer.cpp",
+  "file": "/home/dc/dev/NN/src/Layer.cpp"
+},
+{
+  "directory": "/home/dc/dev/NN/build",
+  "command": "/usr/bin/g++-5    -I/home/dc/dev/NN/./include  -g   -o CMakeFiles/NN.dir/src/Node.cpp.o -c /home/dc/dev/NN/src/Node.cpp",
+  "file": "/home/dc/dev/NN/src/Node.cpp"
+}
+]
