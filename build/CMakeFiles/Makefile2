@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = /home/dc/dev/NN
 CMAKE_BINARY_DIR = /home/dc/dev/NN/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/NN.dir
+# Target rules for target CMakeFiles/NN.out.dir
 
 # All Build rule for target.
-CMakeFiles/NN.dir/all:
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/depend
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dc/dev/NN/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target NN"
-.PHONY : CMakeFiles/NN.dir/all
+CMakeFiles/NN.out.dir/all:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/depend
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dc/dev/NN/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target NN.out"
+.PHONY : CMakeFiles/NN.out.dir/all
 
 # Include target in all.
-all: CMakeFiles/NN.dir/all
+all: CMakeFiles/NN.out.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/NN.dir/rule: cmake_check_build_system
+CMakeFiles/NN.out.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dc/dev/NN/build/CMakeFiles 5
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NN.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NN.out.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dc/dev/NN/build/CMakeFiles 0
-.PHONY : CMakeFiles/NN.dir/rule
+.PHONY : CMakeFiles/NN.out.dir/rule
 
 # Convenience name for target.
-NN: CMakeFiles/NN.dir/rule
+NN.out: CMakeFiles/NN.out.dir/rule
 
-.PHONY : NN
-
-# clean rule for target.
-CMakeFiles/NN.dir/clean:
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/clean
-.PHONY : CMakeFiles/NN.dir/clean
+.PHONY : NN.out
 
 # clean rule for target.
-clean: CMakeFiles/NN.dir/clean
+CMakeFiles/NN.out.dir/clean:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/clean
+.PHONY : CMakeFiles/NN.out.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/NN.out.dir/clean
 
 .PHONY : clean
 

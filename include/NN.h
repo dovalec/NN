@@ -8,7 +8,8 @@ public:
     NN();
     virtual ~NN();
 
-    
+    void init(int numLayers);
+
 private:
     std::vector<Layer> mLayers;
 };

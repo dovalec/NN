@@ -6,7 +6,7 @@ enable_testing()
 
 include_directories( ./include )
 
-add_executable(NN 
+add_executable(NN.out
     src/Main.cpp 
     src/NN.cpp
     src/Layer.cpp

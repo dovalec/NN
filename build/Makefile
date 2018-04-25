@@ -144,17 +144,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named NN
+# Target rules for targets named NN.out
 
 # Build rule for target.
-NN: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NN
-.PHONY : NN
+NN.out: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NN.out
+.PHONY : NN.out
 
 # fast build rule for target.
-NN/fast:
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/build
-.PHONY : NN/fast
+NN.out/fast:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/build
+.PHONY : NN.out/fast
 
 #=============================================================================
 # Target rules for targets named ContinuousSubmit
@@ -526,7 +526,7 @@ src/Layer.o: src/Layer.cpp.o
 
 # target to build an object file
 src/Layer.cpp.o:
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/src/Layer.cpp.o
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Layer.cpp.o
 .PHONY : src/Layer.cpp.o
 
 src/Layer.i: src/Layer.cpp.i
@@ -535,7 +535,7 @@ src/Layer.i: src/Layer.cpp.i
 
 # target to preprocess a source file
 src/Layer.cpp.i:
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/src/Layer.cpp.i
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Layer.cpp.i
 .PHONY : src/Layer.cpp.i
 
 src/Layer.s: src/Layer.cpp.s
@@ -544,7 +544,7 @@ src/Layer.s: src/Layer.cpp.s
 
 # target to generate assembly for a file
 src/Layer.cpp.s:
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/src/Layer.cpp.s
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Layer.cpp.s
 .PHONY : src/Layer.cpp.s
 
 src/Main.o: src/Main.cpp.o
@@ -553,7 +553,7 @@ src/Main.o: src/Main.cpp.o
 
 # target to build an object file
 src/Main.cpp.o:
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/src/Main.cpp.o
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Main.cpp.o
 .PHONY : src/Main.cpp.o
 
 src/Main.i: src/Main.cpp.i
@@ -562,7 +562,7 @@ src/Main.i: src/Main.cpp.i
 
 # target to preprocess a source file
 src/Main.cpp.i:
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/src/Main.cpp.i
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Main.cpp.i
 .PHONY : src/Main.cpp.i
 
 src/Main.s: src/Main.cpp.s
@@ -571,7 +571,7 @@ src/Main.s: src/Main.cpp.s
 
 # target to generate assembly for a file
 src/Main.cpp.s:
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/src/Main.cpp.s
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Main.cpp.s
 .PHONY : src/Main.cpp.s
 
 src/NN.o: src/NN.cpp.o
@@ -580,7 +580,7 @@ src/NN.o: src/NN.cpp.o
 
 # target to build an object file
 src/NN.cpp.o:
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/src/NN.cpp.o
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/NN.cpp.o
 .PHONY : src/NN.cpp.o
 
 src/NN.i: src/NN.cpp.i
@@ -589,7 +589,7 @@ src/NN.i: src/NN.cpp.i
 
 # target to preprocess a source file
 src/NN.cpp.i:
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/src/NN.cpp.i
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/NN.cpp.i
 .PHONY : src/NN.cpp.i
 
 src/NN.s: src/NN.cpp.s
@@ -598,7 +598,7 @@ src/NN.s: src/NN.cpp.s
 
 # target to generate assembly for a file
 src/NN.cpp.s:
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/src/NN.cpp.s
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/NN.cpp.s
 .PHONY : src/NN.cpp.s
 
 src/Node.o: src/Node.cpp.o
@@ -607,7 +607,7 @@ src/Node.o: src/Node.cpp.o
 
 # target to build an object file
 src/Node.cpp.o:
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/src/Node.cpp.o
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Node.cpp.o
 .PHONY : src/Node.cpp.o
 
 src/Node.i: src/Node.cpp.i
@@ -616,7 +616,7 @@ src/Node.i: src/Node.cpp.i
 
 # target to preprocess a source file
 src/Node.cpp.i:
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/src/Node.cpp.i
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Node.cpp.i
 .PHONY : src/Node.cpp.i
 
 src/Node.s: src/Node.cpp.s
@@ -625,7 +625,7 @@ src/Node.s: src/Node.cpp.s
 
 # target to generate assembly for a file
 src/Node.cpp.s:
-	$(MAKE) -f CMakeFiles/NN.dir/build.make CMakeFiles/NN.dir/src/Node.cpp.s
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Node.cpp.s
 .PHONY : src/Node.cpp.s
 
 # Help Target
@@ -636,7 +636,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... NN"
+	@echo "... NN.out"
 	@echo "... ContinuousSubmit"
 	@echo "... ContinuousCoverage"
 	@echo "... ContinuousTest"
