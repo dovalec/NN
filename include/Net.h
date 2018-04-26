@@ -25,5 +25,6 @@ public:
     void debug();
     
 private:
+    int mId;
     VecLayer mLayers;
 };

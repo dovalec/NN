@@ -1,9 +1,9 @@
 #include <iostream>
-#include "NN.h"
+#include "Net.h"
 
 int main(void) {
     std::cout << "NN" << std::endl;
-    NN nn;
+    Net nn;
 
     VecTopology topology;
     topology.push_back(3);
@@ -12,6 +12,8 @@ int main(void) {
     topology.push_back(5);
     topology.push_back(4);
     
-    nn.init(topology);
+    nn.setup(topology);
+    
+    nn.check();
     return 0;
 }

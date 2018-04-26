@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/NN.out.dir/src/Main.cpp.o"
-  "CMakeFiles/NN.out.dir/src/NN.cpp.o"
+  "CMakeFiles/NN.out.dir/src/Net.cpp.o"
   "CMakeFiles/NN.out.dir/src/Layer.cpp.o"
   "CMakeFiles/NN.out.dir/src/Node.cpp.o"
   "CMakeFiles/NN.out.dir/src/Wire.cpp.o"

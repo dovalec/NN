@@ -2,7 +2,7 @@
 
 
 Net::Net() {
-    
+    mId = -1;
 }
 
 Net::~Net() {
@@ -10,9 +10,15 @@ Net::~Net() {
 }
 
 bool Net::check() {
+    
+    if (mId == -1) {
+         std::cout << "Error at Net[" << mId << "] - No id." << std::endl; 
+         return false;
+    }
+    
     if (mLayers.size() == 0) {
-         std::cout << "Error at Net[ " << mId << "] - No layerד." << std::endl; 
-         return false
+         std::cout << "Error at Net[" << mId << "] - No layer." << std::endl; 
+         return false;
     }
     
     
@@ -45,8 +51,11 @@ void Net::init(VecTopology & topology) {
     mLayers.resize(numLayers);
     
     for (int n = 0; n < numLayers ; n++) {
-        mLayers[n].setSize(topology[n]);
+        mLayers[n].init(topology[n]);
     }
+    
+    
+    check();
 }
 
 void Net::debug() {

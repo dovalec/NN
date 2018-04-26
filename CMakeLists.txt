@@ -8,7 +8,7 @@ include_directories( ./include )
 
 add_executable(NN.out
     src/Main.cpp 
-    src/NN.cpp
+    src/Net.cpp
     src/Layer.cpp
     src/Node.cpp
     src/Wire.cpp

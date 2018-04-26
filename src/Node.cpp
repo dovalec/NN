@@ -13,15 +13,21 @@ Node::~Node() {
 }
 
 bool Node::check() {
-    if (mNodes.size() == 0) {
-         std::cout << "Error at Node[ " << mId << "] - No Wires." << std::endl; 
-         return false
+    if (mId == -1) {
+         std::cout << "Error at Node[" << mId << "] - No id." << std::endl; 
+         return false;
+    }
+    
+    
+    if (mWires.size() == 0) {
+         std::cout << "Error at Node[" << mId << "] - No Wires." << std::endl; 
+         return false;
     }
     
     
     for (VecWireIter iter = mWires.begin() ; iter != mWires.end() ; iter++) {
-        Wire p pWire = *iter;
-       if (!wire->check())
+        Wire * pWire = *iter;
+       if (!pWire->check())
         return false;
     }
     

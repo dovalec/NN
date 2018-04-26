@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/projects/NN/src/Layer.cpp" "/projects/NN/CMakeFiles/NN.out.dir/src/Layer.cpp.o"
   "/projects/NN/src/Main.cpp" "/projects/NN/CMakeFiles/NN.out.dir/src/Main.cpp.o"
-  "/projects/NN/src/NN.cpp" "/projects/NN/CMakeFiles/NN.out.dir/src/NN.cpp.o"
+  "/projects/NN/src/Net.cpp" "/projects/NN/CMakeFiles/NN.out.dir/src/Net.cpp.o"
   "/projects/NN/src/Node.cpp" "/projects/NN/CMakeFiles/NN.out.dir/src/Node.cpp.o"
   "/projects/NN/src/Wire.cpp" "/projects/NN/CMakeFiles/NN.out.dir/src/Wire.cpp.o"
   )

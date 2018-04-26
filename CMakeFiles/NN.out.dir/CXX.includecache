@@ -20,7 +20,7 @@ Node.h
 Common.h
 ./include/Common.h
 
-./include/NN.h
+./include/Net.h
 vector
 -
 iostream
@@ -47,12 +47,12 @@ Layer.h
 /projects/NN/src/Main.cpp
 iostream
 -
-NN.h
-/projects/NN/src/NN.h
+Net.h
+/projects/NN/src/Net.h
 
-/projects/NN/src/NN.cpp
-NN.h
-/projects/NN/src/NN.h
+/projects/NN/src/Net.cpp
+Net.h
+/projects/NN/src/Net.h
 
 /projects/NN/src/Node.cpp
 Node.h

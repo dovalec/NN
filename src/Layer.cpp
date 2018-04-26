@@ -1,7 +1,7 @@
 #include "Layer.h"
 
 Layer::Layer() {
-    mId = 0;
+    mId = -1;
 }
 
 Layer::~Layer() {
@@ -9,9 +9,14 @@ Layer::~Layer() {
 }
 
 bool Layer::check() {
+    if (mId == -1) {
+         std::cout << "Error at Layer[" << mId << "] - No id." << std::endl; 
+         return false;
+    }
+    
     if (mNodes.size() == 0) {
          std::cout << "Error at Layer[ " << mId << "] - No nodes." << std::endl; 
-         return false
+         return false;
     }
     
     
@@ -24,25 +29,25 @@ bool Layer::check() {
     return true;
 }
 
+
+void Layer::init(int size, Layer & prevLayer) {
+    setSize(size);
+    
+    VecNodes & prevNodes = prevLayer.getNodes();
+    
+    for (VecNodeIter iter = mNodes.begin(),  ; iter != mNodes.end() ; iter++) {
+        Node & myNode = *iter;
+    
+        for (VecNodeIter prevIter = prevNodes.begin(),  ; prevIter != prevNodes.end() ; prevIter++) {
+            
+        
+        }
+    }
+
+}
 
 void Layer::setSize(int size) {
     mNodes.resize(size);
-}
-
-bool Layer::check() {
-    if (mNodes.size() == 0) {
-         std::cout << "Error at Layer[ " << mId << "] - No Nodes." << std::endl; 
-         return false
-    }
-    
-    
-    for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
-        Node & node = *iter;
-       if (!node.check())
-        return false;
-    }
-    
-    return true;
 }
 
 void Layer::setId(int id) {

@@ -17,6 +17,8 @@ public:
     
     void setId(int id);
     
+    void init(int size, Layer & prevLayer);
+    
     void setSize(int size);
     
     inline int getSize() {
@@ -26,6 +28,10 @@ public:
     void feedForward(VecFloat & feed);     
     inline Node & getNode(int n) {
         return mNodes[n]; 
+    }
+    
+    inline VecNode & getNodes() {
+        return mNodes;
     }
     
     void calc();

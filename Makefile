@@ -574,32 +574,32 @@ src/Main.cpp.s:
 	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Main.cpp.s
 .PHONY : src/Main.cpp.s
 
-src/NN.o: src/NN.cpp.o
+src/Net.o: src/Net.cpp.o
 
-.PHONY : src/NN.o
+.PHONY : src/Net.o
 
 # target to build an object file
-src/NN.cpp.o:
-	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/NN.cpp.o
-.PHONY : src/NN.cpp.o
+src/Net.cpp.o:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Net.cpp.o
+.PHONY : src/Net.cpp.o
 
-src/NN.i: src/NN.cpp.i
+src/Net.i: src/Net.cpp.i
 
-.PHONY : src/NN.i
+.PHONY : src/Net.i
 
 # target to preprocess a source file
-src/NN.cpp.i:
-	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/NN.cpp.i
-.PHONY : src/NN.cpp.i
+src/Net.cpp.i:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Net.cpp.i
+.PHONY : src/Net.cpp.i
 
-src/NN.s: src/NN.cpp.s
+src/Net.s: src/Net.cpp.s
 
-.PHONY : src/NN.s
+.PHONY : src/Net.s
 
 # target to generate assembly for a file
-src/NN.cpp.s:
-	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/NN.cpp.s
-.PHONY : src/NN.cpp.s
+src/Net.cpp.s:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Net.cpp.s
+.PHONY : src/Net.cpp.s
 
 src/Node.o: src/Node.cpp.o
 
@@ -701,9 +701,9 @@ help:
 	@echo "... src/Main.o"
 	@echo "... src/Main.i"
 	@echo "... src/Main.s"
-	@echo "... src/NN.o"
-	@echo "... src/NN.i"
-	@echo "... src/NN.s"
+	@echo "... src/Net.o"
+	@echo "... src/Net.i"
+	@echo "... src/Net.s"
 	@echo "... src/Node.o"
 	@echo "... src/Node.i"
 	@echo "... src/Node.s"
