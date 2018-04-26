@@ -73,7 +73,7 @@ void Node::calc() {
 
     
 void Node::debug() {
-    std::cout << "Node[ " << mId << "] " << mOutput << std::endl; 
+    std::cout << "\t\t\tNode[ " << mId << " ] " << mOutput << std::endl; 
     for ( VecWireIter iter = mWires.begin() ; iter != mWires.end() ; iter++)
     {
         Wire & wire = *iter; 

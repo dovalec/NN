@@ -14,5 +14,18 @@ int main(void) {
     
     nn.init(topology);
     
+    VecFloat inputs;
+    inputs.push_back(0.1f);
+    inputs.push_back(0.2f);
+    inputs.push_back(0.4f);
+    
+    nn.feedForward(inputs);
+    
+    int trainCount = 100;
+    while(trainCount--) {
+        nn.calc();
+        nn.debug();
+    }
+    
     return 0;
 }

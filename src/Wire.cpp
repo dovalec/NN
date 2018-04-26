@@ -34,5 +34,5 @@ bool Wire::check() {
 }
 
 void Wire::debug() {
-    std::cout << "Wire[ " << mId << "] " << mWeight << std::endl; 
+    std::cout << "\t\t\t\tWire[ " << mId << " ] " << mWeight << std::endl; 
 }

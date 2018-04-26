@@ -96,7 +96,7 @@ void Layer::calc() {
 
 
 void Layer::debug() {
-    std::cout << "Layer[ " << mId << "]" << std::endl; 
+    std::cout << "\t\tLayer[ " << mId << " ]" << std::endl; 
     for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
         Node & node = *iter;
         node.debug();

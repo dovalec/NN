@@ -21,6 +21,8 @@ public:
 
     void feedForward(VecFloat & feed);
 
+    void calc();
+    
     void init(VecTopology & topology);
     void debug();
     

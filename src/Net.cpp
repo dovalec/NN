@@ -66,8 +66,15 @@ void Net::init(VecTopology & topology) {
     check();
 }
 
+void Net::calc() {
+    for (VecLayerIter iter = mLayers.begin() ; iter != mLayers.end() ; iter++) {
+        Layer & layer = *iter;
+        layer.calc();
+    }   
+}
+
 void Net::debug() {
-    std::cout << "Net[ " << mId << "]" << std::endl; 
+    std::cout << "Net[ " << mId << " ]" << std::endl; 
     for (VecLayerIter iter = mLayers.begin() ; iter != mLayers.end() ; iter++) {
         Layer & layer = *iter;
         layer.debug();
