@@ -4,7 +4,7 @@
 Net::Net() {
     mId = -1;
 }
-
+ 
 Net::~Net() {
 
 }
@@ -37,7 +37,7 @@ void Net::setId(int id) {
     int cid = 0;
     for (VecLayerIter iter = mLayers.begin() ; iter != mLayers.end() ; iter++) {
         Layer & layer = *iter;
-        layer.setId( mId + cid );
+        layer.setId( mId/10 + (mId/10)*cid );
         cid++;
     }
 }
@@ -50,11 +50,17 @@ void Net::init(VecTopology & topology) {
     int numLayers = topology.size();
     mLayers.resize(numLayers);
     
-    for (int n = 0; n < numLayers ; n++) {
-        mLayers[n].init(topology[n]);
+    Layer dummyLayer;
+    mLayers[0].init(topology[0], dummyLayer, mLayers[1]);
+    
+    for (int n = 1; n < numLayers-1 ; n++) {
+        mLayers[n].init(topology[n], mLayers[n-1], mLayers[n+1]);
     }
     
+    mLayers[numLayers-1].init(topology[numLayers-1], mLayers[numLayers-2], dummyLayer);    
     
+    
+    setId(10000000);
     check();
 }
 

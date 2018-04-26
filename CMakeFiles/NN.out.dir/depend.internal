@@ -5,18 +5,21 @@ CMakeFiles/NN.out.dir/src/Layer.cpp.o
  ./include/Common.h
  ./include/Layer.h
  ./include/Node.h
+ ./include/Wire.h
  /projects/NN/src/Layer.cpp
 CMakeFiles/NN.out.dir/src/Main.cpp.o
  ./include/Common.h
  ./include/Layer.h
  ./include/Net.h
  ./include/Node.h
+ ./include/Wire.h
  /projects/NN/src/Main.cpp
 CMakeFiles/NN.out.dir/src/Net.cpp.o
  ./include/Common.h
  ./include/Layer.h
  ./include/Net.h
  ./include/Node.h
+ ./include/Wire.h
  /projects/NN/src/Net.cpp
 CMakeFiles/NN.out.dir/src/Node.cpp.o
  ./include/Node.h

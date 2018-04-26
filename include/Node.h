@@ -2,10 +2,10 @@
 #include <vector>
 #include <iostream>
 
-class Wire;
+#include "Wire.h"
 
-typedef std::vector<Wire*> VecWire;
-typedef std::vector<Wire*>::iterator VecWireIter;
+typedef std::vector<Wire> VecWire;
+typedef std::vector<Wire>::iterator VecWireIter;
 
 class Node {
 
@@ -22,9 +22,12 @@ public:
         return mOutput;
     } 
 
+    inline VecWire & getWires() {
+        return mWires;
+    }
+    
     void setBias(float bias);
     void calc();
-    
     void debug();
    
 private:

@@ -30,19 +30,26 @@ bool Layer::check() {
 }
 
 
-void Layer::init(int size, Layer & prevLayer) {
+void Layer::init(int size, Layer & prevLayer, Layer & nextLayer) {
     setSize(size);
     
-    VecNodes & prevNodes = prevLayer.getNodes();
     
-    for (VecNodeIter iter = mNodes.begin(),  ; iter != mNodes.end() ; iter++) {
-        Node & myNode = *iter;
+    for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
+        Node & node = *iter;
     
-        for (VecNodeIter prevIter = prevNodes.begin(),  ; prevIter != prevNodes.end() ; prevIter++) {
-            
+        node.getWires().resize(prevLayer.getSize());
+        VecWire & nodeWires = node.getWires();
+         
+        VecNode & prevNodes = prevLayer.getNodes();
+        VecNodeIter prevIter = prevNodes.begin();
+        VecWireIter wireIter = nodeWires.begin();
         
+        for ( ; prevIter != prevNodes.end() ; prevIter++ , wireIter++) {        
+            Node & prevNode = *prevIter;
+            Wire & wire = * wireIter;
+            wire.setNode((Node*)&prevNode);
         }
-    }
+    } 
 
 }
 
@@ -56,7 +63,7 @@ void Layer::setId(int id) {
     int cid = 0;
     for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
         Node & node = *iter;
-        node.setId( mId + cid );
+        node.setId( mId/10 + (mId/10)*cid );
         cid++;
     }
 }

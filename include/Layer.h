@@ -17,7 +17,7 @@ public:
     
     void setId(int id);
     
-    void init(int size, Layer & prevLayer);
+    void init(int size, Layer & prevLayer, Layer & nextLayer);
     
     void setSize(int size);
     

@@ -12,8 +12,7 @@ int main(void) {
     topology.push_back(5);
     topology.push_back(4);
     
-    nn.setup(topology);
+    nn.init(topology);
     
-    nn.check();
     return 0;
 }

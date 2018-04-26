@@ -26,8 +26,8 @@ bool Node::check() {
     
     
     for (VecWireIter iter = mWires.begin() ; iter != mWires.end() ; iter++) {
-        Wire * pWire = *iter;
-       if (!pWire->check())
+        Wire & wire = *iter;
+       if (!wire.check())
         return false;
     }
     
@@ -40,11 +40,12 @@ void Node::setId(int id) {
     int cid = 0;
     for ( VecWireIter iter = mWires.begin() ; iter != mWires.end() ; iter++)
     {
-        Wire * wire = *iter; 
-        wire->setId( mId + cid );
+        Wire & wire = *iter; 
+        wire.setId( mId/10 + (mId/10)*cid );
         cid++;
     }
 }
+
 
 void Node::setBias(float bias) {
     mBias = bias;
@@ -54,8 +55,8 @@ void Node::calc() {
     float sum = mBias;
     for ( VecWireIter iter = mWires.begin() ; iter != mWires.end() ; iter++)
     {
-        Wire * pWire = *iter; 
-        sum += pWire->getWeight() * pWire->getNode()->getOutput();
+        Wire & wire = *iter; 
+        sum += wire.getWeight() * wire.getNode()->getOutput();
     }
 }
 
@@ -64,8 +65,8 @@ void Node::debug() {
     std::cout << "Node[ " << mId << "] " << mOutput << std::endl; 
     for ( VecWireIter iter = mWires.begin() ; iter != mWires.end() ; iter++)
     {
-        Wire * pWire = *iter; 
-        pWire->debug();
+        Wire & wire = *iter; 
+        wire.debug();
     }
 }
 
