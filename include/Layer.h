@@ -13,6 +13,12 @@ public:
     Layer();
     virtual ~Layer();
 
+    bool check();
+    
+    void setId(int id);
+    
+    void setSize(int size);
+    
     inline int getSize() {
         return mNodes.size();
     }
@@ -21,7 +27,11 @@ public:
     inline Node & getNode(int n) {
         return mNodes[n]; 
     }
+    
+    void calc();
+    void debug();
 
 private:
     VecNode mNodes;
+    int mId;
 };

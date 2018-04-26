@@ -11,6 +11,8 @@ add_executable(NN.out
     src/NN.cpp
     src/Layer.cpp
     src/Node.cpp
+    src/Wire.cpp
+    
 )
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})

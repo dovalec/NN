@@ -1,20 +1,29 @@
 #pragma once
 #include <vector>
+#include <iostream>
+
 #include "Layer.h"
 #include "Common.h"
 
 typedef std::vector<Layer> VecLayer;
 typedef std::vector<Layer>::iterator VecLayerIter;
 
-class NN {
+typedef std::vector<int> VecTopology;
+
+class Net {
 public:    
-    NN();
-    virtual ~NN();
+    Net();
+    virtual ~Net();
+    
+    bool check();
+    
+    void setId(int id);
 
     void feedForward(VecFloat & feed);
 
-    void init(int numLayers);
-
+    void init(VecTopology & topology);
+    void debug();
+    
 private:
     VecLayer mLayers;
 };

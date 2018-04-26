@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <iostream>
 
 class Wire;
 
@@ -11,15 +12,24 @@ class Node {
 public:    
     Node();
     virtual ~Node();
-
+    
+    bool check();
+    
+    
+    void setId(int id);
+    
     inline float getOutput() {
         return mOutput;
     } 
 
     void setBias(float bias);
-    void clac();
+    void calc();
+    
+    void debug();
    
 private:
+    int mId;
+
     float mOutput;
     float mBias;
     VecWire mWires;
