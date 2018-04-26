@@ -26,12 +26,15 @@ public:
         return mWires;
     }
     
+    void setInputOrOutput(bool input, bool output);
     void setBias(float bias);
     void calc();
     void debug();
    
 private:
     int mId;
+    bool mInput;
+    bool moutput;
 
     float mOutput;
     float mBias;

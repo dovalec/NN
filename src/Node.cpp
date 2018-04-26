@@ -6,6 +6,9 @@
      mOutput = 0;
      mBias = 0;
      
+     mInput = false;
+     mOutput = false;
+     
  }
  
 Node::~Node() {
@@ -13,13 +16,16 @@ Node::~Node() {
 }
 
 bool Node::check() {
+    
+    std::cout << "Checking Node[" << mId << "]" << std::endl; 
+    
     if (mId == -1) {
          std::cout << "Error at Node[" << mId << "] - No id." << std::endl; 
          return false;
     }
     
     
-    if (mWires.size() == 0) {
+    if (mInput == false && mWires.size() == 0) {
          std::cout << "Error at Node[" << mId << "] - No Wires." << std::endl; 
          return false;
     }
@@ -32,6 +38,11 @@ bool Node::check() {
     }
     
     return true;
+}
+
+void Node::setInputOrOutput(bool input, bool output) {
+    mInput = input;
+    mOutput = output;
 }
 
 void Node::setId(int id) {

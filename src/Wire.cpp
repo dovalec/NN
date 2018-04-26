@@ -18,6 +18,8 @@ void Wire::setNode( Node * pNode) {
     
 bool Wire::check() {
     
+    std::cout << "Checking Wire[" << mId << "]" << std::endl; 
+    
     if (mId == -1) {
          std::cout << "Error at Wire[" << mId << "] - No id." << std::endl; 
          return false;

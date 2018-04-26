@@ -9,6 +9,9 @@ Layer::~Layer() {
 }
 
 bool Layer::check() {
+    
+    std::cout << "Checking Layer[" << mId << "]" << std::endl; 
+    
     if (mId == -1) {
          std::cout << "Error at Layer[" << mId << "] - No id." << std::endl; 
          return false;
@@ -28,15 +31,17 @@ bool Layer::check() {
     
     return true;
 }
+ 
 
-
-void Layer::init(int size, Layer & prevLayer, Layer & nextLayer) {
+void Layer::init(int size, bool isInput, bool isOutput, Layer & prevLayer, Layer & nextLayer) {
     setSize(size);
     
     
     for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
         Node & node = *iter;
-    
+        
+        node.setInputOrOutput(isInput, isOutput);
+                
         node.getWires().resize(prevLayer.getSize());
         VecWire & nodeWires = node.getWires();
          
