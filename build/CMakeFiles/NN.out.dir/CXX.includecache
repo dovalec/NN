@@ -6,23 +6,31 @@
 
 #IncludeRegexTransform: 
 
+.././include/Common.h
+vector
+-
+
 .././include/Layer.h
 vector
 -
+iostream
+-
 Node.h
 .././include/Node.h
+Common.h
+.././include/Common.h
 
 .././include/NN.h
 vector
 -
 Layer.h
 .././include/Layer.h
+Common.h
+.././include/Common.h
 
 .././include/Node.h
 vector
 -
-Wire.h
-.././include/Wire.h
 
 .././include/Wire.h
 
@@ -39,8 +47,12 @@ NN.h
 /home/dc/dev/NN/src/NN.cpp
 NN.h
 /home/dc/dev/NN/src/NN.h
+iostream
+-
 
 /home/dc/dev/NN/src/Node.cpp
 Node.h
 /home/dc/dev/NN/src/Node.h
+Wire.h
+/home/dc/dev/NN/src/Wire.h
 

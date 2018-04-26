@@ -1,7 +1,12 @@
 #pragma once
 #include <vector>
+#include <iostream>
 
 #include "Node.h"
+#include "Common.h"
+
+typedef std::vector<Node> VecNode;
+typedef std::vector<Node>::iterator VecNodeIter;
 
 class Layer {
 public:    
@@ -11,9 +16,12 @@ public:
     inline int getSize() {
         return mNodes.size();
     }
-    
-    Node & getNode(int n);
+
+    void feedForward(VecFloat & feed);     
+    inline Node & getNode(int n) {
+        return mNodes[n]; 
+    }
 
 private:
-    std::vector<Node> mNodes;
+    VecNode mNodes;
 };

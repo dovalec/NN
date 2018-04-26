@@ -1,11 +1,13 @@
 #pragma once
 #include <vector>
 
-#include "Wire.h"
+class Wire;
 
-typedef std::vector<Wire>::iterator WireIter; 
+typedef std::vector<Wire*> VecWire;
+typedef std::vector<Wire*>::iterator VecWireIter;
 
 class Node {
+
 public:    
     Node();
     virtual ~Node();
@@ -14,16 +16,11 @@ public:
         return mOutput;
     } 
 
-    inline void clac() {
-        float sum = 0;
-        for ( WireIter iter = mWires.begin() ; iter != mWires.end() ; iter++)
-        {
-            Wire & wire = (*iter); 
-            sum += wire.getWeight() * wire.getNode()->getOutput();
-        }
-    }
+    void setBias(float bias);
+    void clac();
    
 private:
     float mOutput;
-    std::vector<Wire> mWires;
+    float mBias;
+    VecWire mWires;
 };
