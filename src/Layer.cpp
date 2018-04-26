@@ -1,7 +1,10 @@
 #include "Layer.h"
 
+#include <cstdlib>
+
 Layer::Layer() {
-    mId = -1;
+    mId = std::rand();
+    std::cout << "Constructed Layer: " << mId<< std::endl; 
 }
 
 Layer::~Layer() {
@@ -59,19 +62,13 @@ void Layer::init(int size, bool isInput, bool isOutput, Layer & prevLayer, Layer
 }
 
 void Layer::setSize(int size) {
-    mNodes.resize(size);
+    for (int n = 0; n < size ; n++) {
+        mNodes.push_back(Node());
+    }
+
 }
 
-void Layer::setId(int id) {
-    mId = id;   
-    
-    int cid = 0;
-    for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
-        Node & node = *iter;
-        node.setId( mId/10 + (mId/10)*cid );
-        cid++;
-    }
-}
+
 
 void Layer::feedForward(VecFloat & feed) {
     if ( getSize() != feed.size() ) {
@@ -87,7 +84,15 @@ void Layer::feedForward(VecFloat & feed) {
     
 }
 
+void Layer::setBias(float bias) {
+    for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
+        Node & node = *iter;
+        node.setBias(bias);
+    }
+}
+
 void Layer::calc() {
+    std::cout << "Calc Layer[ " << mId << " ]" << std::endl; 
     for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
         Node & node = *iter;
         node.calc();

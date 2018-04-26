@@ -1,8 +1,10 @@
 #include "Net.h"
 
+#include <cstdlib>
 
 Net::Net() {
-    mId = -1;
+    mId = std::rand();
+    std::cout << "Constructed Net: " << mId << std::endl; 
 }
  
 Net::~Net() {
@@ -33,46 +35,36 @@ bool Net::check() {
     return true;
 }
 
-void Net::setId(int id) {
-    mId = id;   
-    
-    int cid = 0;
-    for (VecLayerIter iter = mLayers.begin() ; iter != mLayers.end() ; iter++) {
-        Layer & layer = *iter;
-        layer.setId( mId/10 + (mId/10)*cid );
-        cid++;
-    }
-}
-
 void Net::feedForward(VecFloat & feed) {
    mLayers.front().feedForward(feed);
 }
 
 void Net::init(VecTopology & topology) {
     int numLayers = topology.size();
-    mLayers.resize(numLayers);
-    
+        
+    for (int n = 0; n < numLayers ; n++) {
+        mLayers.push_back(Layer());
+    }
+
     Layer dummyLayer;
     mLayers[0].init(topology[0], true, false, dummyLayer, mLayers[1]);
     
-    for (int n = 1; n < numLayers-1 ; n++) {
+    for (int n = 1; n < mLayers.size()-1 ; n++) {
         mLayers[n].init(topology[n], false, false, mLayers[n-1], mLayers[n+1]);
     }
     
     mLayers[numLayers-1].init(topology[numLayers-1], false, true, mLayers[numLayers-2], dummyLayer);    
     
-    
-    setId(10000000);
-    check();
 }
 
 void Net::calc() {
+    std::cout << "Calc Net[ " << mId << " ]" << std::endl; 
     for (VecLayerIter iter = mLayers.begin() ; iter != mLayers.end() ; iter++) {
         Layer & layer = *iter;
         layer.calc();
     }   
 }
-
+ 
 void Net::debug() {
     std::cout << "Net[ " << mId << " ]" << std::endl; 
     for (VecLayerIter iter = mLayers.begin() ; iter != mLayers.end() ; iter++) {

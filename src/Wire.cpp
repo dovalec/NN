@@ -1,11 +1,15 @@
 #include "Wire.h"
 #include "Node.h"
 
+#include <cstdlib>
 
 Wire::Wire() {
-    mId = -1;
+    mId = std::rand();
+    std::cout << "Constructed Wire: " << mId << std::endl; 
+         
     mpNode = NULL;
     mWeight = 0;
+    mDeltaWeight = 0;
 }
 
 Wire::~Wire() {
@@ -34,5 +38,5 @@ bool Wire::check() {
 }
 
 void Wire::debug() {
-    std::cout << "\t\t\t\tWire[ " << mId << " ] " << mWeight << std::endl; 
+    std::cout << "\t\t\t\tWire[ " << mId << " ] " << mWeight << " " << mDeltaWeight << std::endl; 
 }

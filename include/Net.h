@@ -17,8 +17,6 @@ public:
     
     bool check();
     
-    void setId(int id);
-
     void feedForward(VecFloat & feed);
 
     void calc();

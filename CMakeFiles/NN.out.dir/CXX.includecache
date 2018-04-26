@@ -45,26 +45,36 @@ iostream
 /projects/NN/src/Layer.cpp
 Layer.h
 /projects/NN/src/Layer.h
+cstdlib
+-
 
 /projects/NN/src/Main.cpp
 iostream
 -
 Net.h
 /projects/NN/src/Net.h
+cstdlib
+-
 
 /projects/NN/src/Net.cpp
 Net.h
 /projects/NN/src/Net.h
+cstdlib
+-
 
 /projects/NN/src/Node.cpp
 Node.h
 /projects/NN/src/Node.h
 Wire.h
 /projects/NN/src/Wire.h
+cstdlib
+-
 
 /projects/NN/src/Wire.cpp
 Wire.h
 /projects/NN/src/Wire.h
 Node.h
 /projects/NN/src/Node.h
+cstdlib
+-
 

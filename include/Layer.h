@@ -15,8 +15,6 @@ public:
 
     bool check();
     
-    void setId(int id);
-    
     void init(int size, bool isInput, bool isOutput, Layer & prevLayer, Layer & nextLayer);
     
     void setSize(int size);
@@ -24,6 +22,8 @@ public:
     inline int getSize() {
         return mNodes.size();
     }
+    
+    void setBias(float bias);
 
     void feedForward(VecFloat & feed);     
     inline Node & getNode(int n) {

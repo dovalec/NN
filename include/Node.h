@@ -14,12 +14,10 @@ public:
     virtual ~Node();
     
     bool check();
-    
-    
-    void setId(int id);
+
     
     inline float getOutput() {
-        return mOutput;
+        return mOutputVal;
     } 
 
     inline VecWire & getWires() {
@@ -34,9 +32,9 @@ public:
 private:
     int mId;
     bool mInput;
-    bool moutput;
+    bool mOutput;
 
-    float mOutput;
+    float mOutputVal;
     float mBias;
     VecWire mWires;
 };

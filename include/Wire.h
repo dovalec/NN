@@ -8,10 +8,6 @@ class Wire {
 public:    
     Wire();
     virtual ~Wire();
-
-    void setId(int id) {
-        mId = id;    
-    }
     
     bool check();
     
@@ -30,5 +26,7 @@ public:
 private:
     int mId;
     float mWeight;
+    float mDeltaWeight;
+    
     Node * mpNode;
 };
