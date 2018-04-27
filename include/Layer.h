@@ -5,8 +5,8 @@
 #include "Node.h"
 #include "Common.h"
 
-typedef std::vector<Node> VecNode;
-typedef std::vector<Node>::iterator VecNodeIter;
+typedef std::vector<Node*> VecNode;
+typedef std::vector<Node*>::iterator VecNodeIter;
 
 class Layer {
 public:    
@@ -15,7 +15,7 @@ public:
 
     bool check();
     
-    void init(int size, bool isInput, bool isOutput, Layer & prevLayer, Layer & nextLayer);
+    void init(int size, bool isInput, bool isOutput, Layer * prevLayer, Layer * nextLayer);
     
     void setSize(int size);
     
@@ -25,8 +25,10 @@ public:
     
     void setBias(float bias);
 
-    void feedForward(VecFloat & feed);     
-    inline Node & getNode(int n) {
+    void input(VecFloat & in);
+    void target(VecFloat & target);
+
+    inline Node * getNode(int n) {
         return mNodes[n]; 
     }
     

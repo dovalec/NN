@@ -8,7 +8,10 @@ Layer::Layer() {
 }
 
 Layer::~Layer() {
-    
+    std::cout << "Destruct Layer: " << mId<< std::endl; 
+
+    for (int n=0;n<mNodes.size() ; n++)
+        delete mNodes[n];
 }
 
 bool Layer::check() {
@@ -27,8 +30,8 @@ bool Layer::check() {
     
     
     for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
-        Node & node = *iter;
-       if (!node.check())
+        Node * node = *iter;
+       if (!node->check())
         return false;
     }
     
@@ -36,66 +39,78 @@ bool Layer::check() {
 }
  
 
-void Layer::init(int size, bool isInput, bool isOutput, Layer & prevLayer, Layer & nextLayer) {
+void Layer::init(int size, bool isInput, bool isOutput, Layer * prevLayer, Layer * nextLayer) {
     setSize(size);
     
     
     for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
-        Node & node = *iter;
+        Node * node = *iter;
         
-        node.setInputOrOutput(isInput, isOutput);
+        node->setInputOrOutput(isInput, isOutput);
                 
-        node.getWires().resize(prevLayer.getSize());
-        VecWire & nodeWires = node.getWires();
-         
-        VecNode & prevNodes = prevLayer.getNodes();
-        VecNodeIter prevIter = prevNodes.begin();
-        VecWireIter wireIter = nodeWires.begin();
-        
-        for ( ; prevIter != prevNodes.end() ; prevIter++ , wireIter++) {        
-            Node & prevNode = *prevIter;
-            Wire & wire = * wireIter;
-            wire.setNode((Node*)&prevNode);
+        VecWire & nodeWires = node->getWires();
+        if (prevLayer) {
+            for (int n=0;n<prevLayer->getSize() ; n++) 
+            {
+                Node * prevNode = prevLayer->getNode(n);
+                Wire * wire = new Wire();
+                wire->setNode(prevNode);
+                nodeWires.push_back(wire);
+            }
         }
+         
     } 
 
 }
 
 void Layer::setSize(int size) {
     for (int n = 0; n < size ; n++) {
-        mNodes.push_back(Node());
+        mNodes.push_back(new Node());
     }
-
 }
 
 
 
-void Layer::feedForward(VecFloat & feed) {
-    if ( getSize() != feed.size() ) {
-        std::cout << "Feed size are different" << std::endl;
+void Layer::input(VecFloat & in) {
+    if ( getSize() != in.size() ) {
+        std::cout << "Input size is different" << std::endl;
         return;
     }
 
-    int numVals = feed.size();
+    int numVals = in.size();
     for (int n=0;n<numVals;n++) {
-        Node & node = getNode(n);
-        node.setBias( feed[n] );
+        Node * node = getNode(n);
+        node->setBias( in[n] );
     }
+    
+}
+
+void Layer::target(VecFloat & target) {
+    if ( getSize() != target.size() ) {
+        std::cout << "target size is different" << std::endl;
+        return;
+    }
+
+    // int numVals = target.size();
+    // for (int n=0;n<numVals;n++) {
+    //     Node * node = getNode(n);
+    //     node->setBias( in[n] );
+    // }
     
 }
 
 void Layer::setBias(float bias) {
     for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
-        Node & node = *iter;
-        node.setBias(bias);
+        Node * node = *iter;
+        node->setBias(bias);
     }
 }
 
 void Layer::calc() {
     std::cout << "Calc Layer[ " << mId << " ]" << std::endl; 
     for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
-        Node & node = *iter;
-        node.calc();
+        Node * node = *iter;
+        node->calc();
     }
 }
 
@@ -103,8 +118,8 @@ void Layer::calc() {
 void Layer::debug() {
     std::cout << "\t\tLayer[ " << mId << " ]" << std::endl; 
     for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
-        Node & node = *iter;
-        node.debug();
+        Node * node = *iter;
+        node->debug();
     }
 }
 

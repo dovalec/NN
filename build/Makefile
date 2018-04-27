@@ -574,32 +574,32 @@ src/Main.cpp.s:
 	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Main.cpp.s
 .PHONY : src/Main.cpp.s
 
-src/NN.o: src/NN.cpp.o
+src/Net.o: src/Net.cpp.o
 
-.PHONY : src/NN.o
+.PHONY : src/Net.o
 
 # target to build an object file
-src/NN.cpp.o:
-	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/NN.cpp.o
-.PHONY : src/NN.cpp.o
+src/Net.cpp.o:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Net.cpp.o
+.PHONY : src/Net.cpp.o
 
-src/NN.i: src/NN.cpp.i
+src/Net.i: src/Net.cpp.i
 
-.PHONY : src/NN.i
+.PHONY : src/Net.i
 
 # target to preprocess a source file
-src/NN.cpp.i:
-	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/NN.cpp.i
-.PHONY : src/NN.cpp.i
+src/Net.cpp.i:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Net.cpp.i
+.PHONY : src/Net.cpp.i
 
-src/NN.s: src/NN.cpp.s
+src/Net.s: src/Net.cpp.s
 
-.PHONY : src/NN.s
+.PHONY : src/Net.s
 
 # target to generate assembly for a file
-src/NN.cpp.s:
-	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/NN.cpp.s
-.PHONY : src/NN.cpp.s
+src/Net.cpp.s:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Net.cpp.s
+.PHONY : src/Net.cpp.s
 
 src/Node.o: src/Node.cpp.o
 
@@ -627,6 +627,60 @@ src/Node.s: src/Node.cpp.s
 src/Node.cpp.s:
 	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Node.cpp.s
 .PHONY : src/Node.cpp.s
+
+src/TransformFunc.o: src/TransformFunc.cpp.o
+
+.PHONY : src/TransformFunc.o
+
+# target to build an object file
+src/TransformFunc.cpp.o:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o
+.PHONY : src/TransformFunc.cpp.o
+
+src/TransformFunc.i: src/TransformFunc.cpp.i
+
+.PHONY : src/TransformFunc.i
+
+# target to preprocess a source file
+src/TransformFunc.cpp.i:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/TransformFunc.cpp.i
+.PHONY : src/TransformFunc.cpp.i
+
+src/TransformFunc.s: src/TransformFunc.cpp.s
+
+.PHONY : src/TransformFunc.s
+
+# target to generate assembly for a file
+src/TransformFunc.cpp.s:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/TransformFunc.cpp.s
+.PHONY : src/TransformFunc.cpp.s
+
+src/Wire.o: src/Wire.cpp.o
+
+.PHONY : src/Wire.o
+
+# target to build an object file
+src/Wire.cpp.o:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Wire.cpp.o
+.PHONY : src/Wire.cpp.o
+
+src/Wire.i: src/Wire.cpp.i
+
+.PHONY : src/Wire.i
+
+# target to preprocess a source file
+src/Wire.cpp.i:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Wire.cpp.i
+.PHONY : src/Wire.cpp.i
+
+src/Wire.s: src/Wire.cpp.s
+
+.PHONY : src/Wire.s
+
+# target to generate assembly for a file
+src/Wire.cpp.s:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Wire.cpp.s
+.PHONY : src/Wire.cpp.s
 
 # Help Target
 help:
@@ -674,12 +728,18 @@ help:
 	@echo "... src/Main.o"
 	@echo "... src/Main.i"
 	@echo "... src/Main.s"
-	@echo "... src/NN.o"
-	@echo "... src/NN.i"
-	@echo "... src/NN.s"
+	@echo "... src/Net.o"
+	@echo "... src/Net.i"
+	@echo "... src/Net.s"
 	@echo "... src/Node.o"
 	@echo "... src/Node.i"
 	@echo "... src/Node.s"
+	@echo "... src/TransformFunc.o"
+	@echo "... src/TransformFunc.i"
+	@echo "... src/TransformFunc.s"
+	@echo "... src/Wire.o"
+	@echo "... src/Wire.i"
+	@echo "... src/Wire.s"
 .PHONY : help
 
 

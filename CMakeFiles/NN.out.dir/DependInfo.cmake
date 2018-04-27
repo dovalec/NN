@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/projects/NN/src/Layer.cpp" "/projects/NN/CMakeFiles/NN.out.dir/src/Layer.cpp.o"
-  "/projects/NN/src/Main.cpp" "/projects/NN/CMakeFiles/NN.out.dir/src/Main.cpp.o"
-  "/projects/NN/src/Net.cpp" "/projects/NN/CMakeFiles/NN.out.dir/src/Net.cpp.o"
-  "/projects/NN/src/Node.cpp" "/projects/NN/CMakeFiles/NN.out.dir/src/Node.cpp.o"
-  "/projects/NN/src/Wire.cpp" "/projects/NN/CMakeFiles/NN.out.dir/src/Wire.cpp.o"
+  "/home/dc/dev/NN/src/Layer.cpp" "/home/dc/dev/NN/CMakeFiles/NN.out.dir/src/Layer.cpp.o"
+  "/home/dc/dev/NN/src/Main.cpp" "/home/dc/dev/NN/CMakeFiles/NN.out.dir/src/Main.cpp.o"
+  "/home/dc/dev/NN/src/Net.cpp" "/home/dc/dev/NN/CMakeFiles/NN.out.dir/src/Net.cpp.o"
+  "/home/dc/dev/NN/src/Node.cpp" "/home/dc/dev/NN/CMakeFiles/NN.out.dir/src/Node.cpp.o"
+  "/home/dc/dev/NN/src/Wire.cpp" "/home/dc/dev/NN/CMakeFiles/NN.out.dir/src/Wire.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

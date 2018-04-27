@@ -6,8 +6,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/dc/dev/NN/src/Layer.cpp" "/home/dc/dev/NN/build/CMakeFiles/NN.out.dir/src/Layer.cpp.o"
   "/home/dc/dev/NN/src/Main.cpp" "/home/dc/dev/NN/build/CMakeFiles/NN.out.dir/src/Main.cpp.o"
-  "/home/dc/dev/NN/src/NN.cpp" "/home/dc/dev/NN/build/CMakeFiles/NN.out.dir/src/NN.cpp.o"
+  "/home/dc/dev/NN/src/Net.cpp" "/home/dc/dev/NN/build/CMakeFiles/NN.out.dir/src/Net.cpp.o"
   "/home/dc/dev/NN/src/Node.cpp" "/home/dc/dev/NN/build/CMakeFiles/NN.out.dir/src/Node.cpp.o"
+  "/home/dc/dev/NN/src/TransformFunc.cpp" "/home/dc/dev/NN/build/CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o"
+  "/home/dc/dev/NN/src/Wire.cpp" "/home/dc/dev/NN/build/CMakeFiles/NN.out.dir/src/Wire.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -4,8 +4,8 @@
 
 #include "Wire.h"
 
-typedef std::vector<Wire> VecWire;
-typedef std::vector<Wire>::iterator VecWireIter;
+typedef std::vector<Wire*> VecWire;
+typedef std::vector<Wire*>::iterator VecWireIter;
 
 class Node {
 

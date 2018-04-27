@@ -6,8 +6,8 @@
 },
 {
   "directory": "/home/dc/dev/NN/build",
-  "command": "/usr/bin/g++-5    -I/home/dc/dev/NN/./include  -g   -o CMakeFiles/NN.out.dir/src/NN.cpp.o -c /home/dc/dev/NN/src/NN.cpp",
-  "file": "/home/dc/dev/NN/src/NN.cpp"
+  "command": "/usr/bin/g++-5    -I/home/dc/dev/NN/./include  -g   -o CMakeFiles/NN.out.dir/src/Net.cpp.o -c /home/dc/dev/NN/src/Net.cpp",
+  "file": "/home/dc/dev/NN/src/Net.cpp"
 },
 {
   "directory": "/home/dc/dev/NN/build",
@@ -18,5 +18,15 @@
   "directory": "/home/dc/dev/NN/build",
   "command": "/usr/bin/g++-5    -I/home/dc/dev/NN/./include  -g   -o CMakeFiles/NN.out.dir/src/Node.cpp.o -c /home/dc/dev/NN/src/Node.cpp",
   "file": "/home/dc/dev/NN/src/Node.cpp"
+},
+{
+  "directory": "/home/dc/dev/NN/build",
+  "command": "/usr/bin/g++-5    -I/home/dc/dev/NN/./include  -g   -o CMakeFiles/NN.out.dir/src/Wire.cpp.o -c /home/dc/dev/NN/src/Wire.cpp",
+  "file": "/home/dc/dev/NN/src/Wire.cpp"
+},
+{
+  "directory": "/home/dc/dev/NN/build",
+  "command": "/usr/bin/g++-5    -I/home/dc/dev/NN/./include  -g   -o CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o -c /home/dc/dev/NN/src/TransformFunc.cpp",
+  "file": "/home/dc/dev/NN/src/TransformFunc.cpp"
 }
 ]

@@ -22,7 +22,15 @@ int main(void) {
     inputs.push_back(0.2f);
     inputs.push_back(0.4f);
     
-    nn.feedForward(inputs);
+    
+    VecFloat target;
+    target.push_back(0.4f);
+    target.push_back(0.5f);
+    target.push_back(0.9f);
+    
+
+    nn.input(inputs);
+    nn.target(target);
     
     int trainCount = 100;
     while(trainCount--) {

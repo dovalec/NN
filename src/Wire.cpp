@@ -8,12 +8,13 @@ Wire::Wire() {
     std::cout << "Constructed Wire: " << mId << std::endl; 
          
     mpNode = NULL;
-    mWeight = 0;
+    mWeight = (float)std::rand() / (float)RAND_MAX;
     mDeltaWeight = 0;
 }
 
 Wire::~Wire() {
-    
+    std::cout << "Destruct Wire: " << mId << std::endl; 
+
 }
 
 void Wire::setNode( Node * pNode) {

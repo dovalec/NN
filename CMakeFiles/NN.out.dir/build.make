@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /projects/NN
+CMAKE_SOURCE_DIR = /home/dc/dev/NN
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /projects/NN
+CMAKE_BINARY_DIR = /home/dc/dev/NN
 
 # Include any dependencies generated for this target.
 include CMakeFiles/NN.out.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/NN.out.dir/flags.make
 
 CMakeFiles/NN.out.dir/src/Main.cpp.o: CMakeFiles/NN.out.dir/flags.make
 CMakeFiles/NN.out.dir/src/Main.cpp.o: src/Main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/projects/NN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/NN.out.dir/src/Main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NN.out.dir/src/Main.cpp.o -c /projects/NN/src/Main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dc/dev/NN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/NN.out.dir/src/Main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NN.out.dir/src/Main.cpp.o -c /home/dc/dev/NN/src/Main.cpp
 
 CMakeFiles/NN.out.dir/src/Main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NN.out.dir/src/Main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /projects/NN/src/Main.cpp > CMakeFiles/NN.out.dir/src/Main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dc/dev/NN/src/Main.cpp > CMakeFiles/NN.out.dir/src/Main.cpp.i
 
 CMakeFiles/NN.out.dir/src/Main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NN.out.dir/src/Main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /projects/NN/src/Main.cpp -o CMakeFiles/NN.out.dir/src/Main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dc/dev/NN/src/Main.cpp -o CMakeFiles/NN.out.dir/src/Main.cpp.s
 
 CMakeFiles/NN.out.dir/src/Main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/NN.out.dir/src/Main.cpp.o.provides.build: CMakeFiles/NN.out.dir/src/M
 
 CMakeFiles/NN.out.dir/src/Net.cpp.o: CMakeFiles/NN.out.dir/flags.make
 CMakeFiles/NN.out.dir/src/Net.cpp.o: src/Net.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/projects/NN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NN.out.dir/src/Net.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NN.out.dir/src/Net.cpp.o -c /projects/NN/src/Net.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dc/dev/NN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NN.out.dir/src/Net.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NN.out.dir/src/Net.cpp.o -c /home/dc/dev/NN/src/Net.cpp
 
 CMakeFiles/NN.out.dir/src/Net.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NN.out.dir/src/Net.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /projects/NN/src/Net.cpp > CMakeFiles/NN.out.dir/src/Net.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dc/dev/NN/src/Net.cpp > CMakeFiles/NN.out.dir/src/Net.cpp.i
 
 CMakeFiles/NN.out.dir/src/Net.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NN.out.dir/src/Net.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /projects/NN/src/Net.cpp -o CMakeFiles/NN.out.dir/src/Net.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dc/dev/NN/src/Net.cpp -o CMakeFiles/NN.out.dir/src/Net.cpp.s
 
 CMakeFiles/NN.out.dir/src/Net.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/NN.out.dir/src/Net.cpp.o.provides.build: CMakeFiles/NN.out.dir/src/Ne
 
 CMakeFiles/NN.out.dir/src/Layer.cpp.o: CMakeFiles/NN.out.dir/flags.make
 CMakeFiles/NN.out.dir/src/Layer.cpp.o: src/Layer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/projects/NN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/NN.out.dir/src/Layer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NN.out.dir/src/Layer.cpp.o -c /projects/NN/src/Layer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dc/dev/NN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/NN.out.dir/src/Layer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NN.out.dir/src/Layer.cpp.o -c /home/dc/dev/NN/src/Layer.cpp
 
 CMakeFiles/NN.out.dir/src/Layer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NN.out.dir/src/Layer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /projects/NN/src/Layer.cpp > CMakeFiles/NN.out.dir/src/Layer.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dc/dev/NN/src/Layer.cpp > CMakeFiles/NN.out.dir/src/Layer.cpp.i
 
 CMakeFiles/NN.out.dir/src/Layer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NN.out.dir/src/Layer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /projects/NN/src/Layer.cpp -o CMakeFiles/NN.out.dir/src/Layer.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dc/dev/NN/src/Layer.cpp -o CMakeFiles/NN.out.dir/src/Layer.cpp.s
 
 CMakeFiles/NN.out.dir/src/Layer.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/NN.out.dir/src/Layer.cpp.o.provides.build: CMakeFiles/NN.out.dir/src/
 
 CMakeFiles/NN.out.dir/src/Node.cpp.o: CMakeFiles/NN.out.dir/flags.make
 CMakeFiles/NN.out.dir/src/Node.cpp.o: src/Node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/projects/NN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/NN.out.dir/src/Node.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NN.out.dir/src/Node.cpp.o -c /projects/NN/src/Node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dc/dev/NN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/NN.out.dir/src/Node.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NN.out.dir/src/Node.cpp.o -c /home/dc/dev/NN/src/Node.cpp
 
 CMakeFiles/NN.out.dir/src/Node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NN.out.dir/src/Node.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /projects/NN/src/Node.cpp > CMakeFiles/NN.out.dir/src/Node.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dc/dev/NN/src/Node.cpp > CMakeFiles/NN.out.dir/src/Node.cpp.i
 
 CMakeFiles/NN.out.dir/src/Node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NN.out.dir/src/Node.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /projects/NN/src/Node.cpp -o CMakeFiles/NN.out.dir/src/Node.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dc/dev/NN/src/Node.cpp -o CMakeFiles/NN.out.dir/src/Node.cpp.s
 
 CMakeFiles/NN.out.dir/src/Node.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/NN.out.dir/src/Node.cpp.o.provides.build: CMakeFiles/NN.out.dir/src/N
 
 CMakeFiles/NN.out.dir/src/Wire.cpp.o: CMakeFiles/NN.out.dir/flags.make
 CMakeFiles/NN.out.dir/src/Wire.cpp.o: src/Wire.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/projects/NN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/NN.out.dir/src/Wire.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NN.out.dir/src/Wire.cpp.o -c /projects/NN/src/Wire.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dc/dev/NN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/NN.out.dir/src/Wire.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NN.out.dir/src/Wire.cpp.o -c /home/dc/dev/NN/src/Wire.cpp
 
 CMakeFiles/NN.out.dir/src/Wire.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NN.out.dir/src/Wire.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /projects/NN/src/Wire.cpp > CMakeFiles/NN.out.dir/src/Wire.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dc/dev/NN/src/Wire.cpp > CMakeFiles/NN.out.dir/src/Wire.cpp.i
 
 CMakeFiles/NN.out.dir/src/Wire.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NN.out.dir/src/Wire.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /projects/NN/src/Wire.cpp -o CMakeFiles/NN.out.dir/src/Wire.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dc/dev/NN/src/Wire.cpp -o CMakeFiles/NN.out.dir/src/Wire.cpp.s
 
 CMakeFiles/NN.out.dir/src/Wire.cpp.o.requires:
 
@@ -195,7 +195,7 @@ NN.out: CMakeFiles/NN.out.dir/src/Node.cpp.o
 NN.out: CMakeFiles/NN.out.dir/src/Wire.cpp.o
 NN.out: CMakeFiles/NN.out.dir/build.make
 NN.out: CMakeFiles/NN.out.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/projects/NN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable NN.out"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dc/dev/NN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable NN.out"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/NN.out.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -216,6 +216,6 @@ CMakeFiles/NN.out.dir/clean:
 .PHONY : CMakeFiles/NN.out.dir/clean
 
 CMakeFiles/NN.out.dir/depend:
-	cd /projects/NN && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /projects/NN /projects/NN /projects/NN /projects/NN /projects/NN/CMakeFiles/NN.out.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dc/dev/NN && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dc/dev/NN /home/dc/dev/NN /home/dc/dev/NN /home/dc/dev/NN /home/dc/dev/NN/CMakeFiles/NN.out.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/NN.out.dir/depend
 

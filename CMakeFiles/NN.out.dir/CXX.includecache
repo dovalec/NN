@@ -42,39 +42,39 @@ Wire.h
 iostream
 -
 
-/projects/NN/src/Layer.cpp
+/home/dc/dev/NN/src/Layer.cpp
 Layer.h
-/projects/NN/src/Layer.h
+/home/dc/dev/NN/src/Layer.h
 cstdlib
 -
 
-/projects/NN/src/Main.cpp
+/home/dc/dev/NN/src/Main.cpp
 iostream
 -
 Net.h
-/projects/NN/src/Net.h
+/home/dc/dev/NN/src/Net.h
 cstdlib
 -
 
-/projects/NN/src/Net.cpp
+/home/dc/dev/NN/src/Net.cpp
 Net.h
-/projects/NN/src/Net.h
+/home/dc/dev/NN/src/Net.h
 cstdlib
 -
 
-/projects/NN/src/Node.cpp
+/home/dc/dev/NN/src/Node.cpp
 Node.h
-/projects/NN/src/Node.h
+/home/dc/dev/NN/src/Node.h
 Wire.h
-/projects/NN/src/Wire.h
+/home/dc/dev/NN/src/Wire.h
 cstdlib
 -
 
-/projects/NN/src/Wire.cpp
+/home/dc/dev/NN/src/Wire.cpp
 Wire.h
-/projects/NN/src/Wire.h
+/home/dc/dev/NN/src/Wire.h
 Node.h
-/projects/NN/src/Node.h
+/home/dc/dev/NN/src/Node.h
 cstdlib
 -
 

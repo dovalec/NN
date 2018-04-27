@@ -1,1 +1,0 @@
-/usr/bin/g++-5   -g   CMakeFiles/NN.dir/src/Main.cpp.o CMakeFiles/NN.dir/src/NN.cpp.o CMakeFiles/NN.dir/src/Layer.cpp.o CMakeFiles/NN.dir/src/Node.cpp.o  -o NN -rdynamic 

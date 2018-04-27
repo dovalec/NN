@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /projects/NN
+CMAKE_SOURCE_DIR = /home/dc/dev/NN
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /projects/NN
+CMAKE_BINARY_DIR = /home/dc/dev/NN
 
 # Utility rule file for NightlyMemoryCheck.
 
@@ -71,6 +71,6 @@ CMakeFiles/NightlyMemoryCheck.dir/clean:
 .PHONY : CMakeFiles/NightlyMemoryCheck.dir/clean
 
 CMakeFiles/NightlyMemoryCheck.dir/depend:
-	cd /projects/NN && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /projects/NN /projects/NN /projects/NN /projects/NN /projects/NN/CMakeFiles/NightlyMemoryCheck.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dc/dev/NN && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dc/dev/NN /home/dc/dev/NN /home/dc/dev/NN /home/dc/dev/NN /home/dc/dev/NN/CMakeFiles/NightlyMemoryCheck.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/NightlyMemoryCheck.dir/depend
 

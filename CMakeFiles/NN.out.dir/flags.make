@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/projects/NN/./include 
+CXX_INCLUDES = -I/home/dc/dev/NN/./include 
 

@@ -81,28 +81,28 @@ CMakeFiles/NN.out.dir/src/Main.cpp.o.provides: CMakeFiles/NN.out.dir/src/Main.cp
 CMakeFiles/NN.out.dir/src/Main.cpp.o.provides.build: CMakeFiles/NN.out.dir/src/Main.cpp.o
 
 
-CMakeFiles/NN.out.dir/src/NN.cpp.o: CMakeFiles/NN.out.dir/flags.make
-CMakeFiles/NN.out.dir/src/NN.cpp.o: ../src/NN.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dc/dev/NN/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NN.out.dir/src/NN.cpp.o"
-	/usr/bin/g++-5   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NN.out.dir/src/NN.cpp.o -c /home/dc/dev/NN/src/NN.cpp
+CMakeFiles/NN.out.dir/src/Net.cpp.o: CMakeFiles/NN.out.dir/flags.make
+CMakeFiles/NN.out.dir/src/Net.cpp.o: ../src/Net.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dc/dev/NN/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NN.out.dir/src/Net.cpp.o"
+	/usr/bin/g++-5   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NN.out.dir/src/Net.cpp.o -c /home/dc/dev/NN/src/Net.cpp
 
-CMakeFiles/NN.out.dir/src/NN.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NN.out.dir/src/NN.cpp.i"
-	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dc/dev/NN/src/NN.cpp > CMakeFiles/NN.out.dir/src/NN.cpp.i
+CMakeFiles/NN.out.dir/src/Net.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NN.out.dir/src/Net.cpp.i"
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dc/dev/NN/src/Net.cpp > CMakeFiles/NN.out.dir/src/Net.cpp.i
 
-CMakeFiles/NN.out.dir/src/NN.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NN.out.dir/src/NN.cpp.s"
-	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dc/dev/NN/src/NN.cpp -o CMakeFiles/NN.out.dir/src/NN.cpp.s
+CMakeFiles/NN.out.dir/src/Net.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NN.out.dir/src/Net.cpp.s"
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dc/dev/NN/src/Net.cpp -o CMakeFiles/NN.out.dir/src/Net.cpp.s
 
-CMakeFiles/NN.out.dir/src/NN.cpp.o.requires:
+CMakeFiles/NN.out.dir/src/Net.cpp.o.requires:
 
-.PHONY : CMakeFiles/NN.out.dir/src/NN.cpp.o.requires
+.PHONY : CMakeFiles/NN.out.dir/src/Net.cpp.o.requires
 
-CMakeFiles/NN.out.dir/src/NN.cpp.o.provides: CMakeFiles/NN.out.dir/src/NN.cpp.o.requires
-	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/NN.cpp.o.provides.build
-.PHONY : CMakeFiles/NN.out.dir/src/NN.cpp.o.provides
+CMakeFiles/NN.out.dir/src/Net.cpp.o.provides: CMakeFiles/NN.out.dir/src/Net.cpp.o.requires
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Net.cpp.o.provides.build
+.PHONY : CMakeFiles/NN.out.dir/src/Net.cpp.o.provides
 
-CMakeFiles/NN.out.dir/src/NN.cpp.o.provides.build: CMakeFiles/NN.out.dir/src/NN.cpp.o
+CMakeFiles/NN.out.dir/src/Net.cpp.o.provides.build: CMakeFiles/NN.out.dir/src/Net.cpp.o
 
 
 CMakeFiles/NN.out.dir/src/Layer.cpp.o: CMakeFiles/NN.out.dir/flags.make
@@ -153,23 +153,75 @@ CMakeFiles/NN.out.dir/src/Node.cpp.o.provides: CMakeFiles/NN.out.dir/src/Node.cp
 CMakeFiles/NN.out.dir/src/Node.cpp.o.provides.build: CMakeFiles/NN.out.dir/src/Node.cpp.o
 
 
+CMakeFiles/NN.out.dir/src/Wire.cpp.o: CMakeFiles/NN.out.dir/flags.make
+CMakeFiles/NN.out.dir/src/Wire.cpp.o: ../src/Wire.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dc/dev/NN/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/NN.out.dir/src/Wire.cpp.o"
+	/usr/bin/g++-5   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NN.out.dir/src/Wire.cpp.o -c /home/dc/dev/NN/src/Wire.cpp
+
+CMakeFiles/NN.out.dir/src/Wire.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NN.out.dir/src/Wire.cpp.i"
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dc/dev/NN/src/Wire.cpp > CMakeFiles/NN.out.dir/src/Wire.cpp.i
+
+CMakeFiles/NN.out.dir/src/Wire.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NN.out.dir/src/Wire.cpp.s"
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dc/dev/NN/src/Wire.cpp -o CMakeFiles/NN.out.dir/src/Wire.cpp.s
+
+CMakeFiles/NN.out.dir/src/Wire.cpp.o.requires:
+
+.PHONY : CMakeFiles/NN.out.dir/src/Wire.cpp.o.requires
+
+CMakeFiles/NN.out.dir/src/Wire.cpp.o.provides: CMakeFiles/NN.out.dir/src/Wire.cpp.o.requires
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Wire.cpp.o.provides.build
+.PHONY : CMakeFiles/NN.out.dir/src/Wire.cpp.o.provides
+
+CMakeFiles/NN.out.dir/src/Wire.cpp.o.provides.build: CMakeFiles/NN.out.dir/src/Wire.cpp.o
+
+
+CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o: CMakeFiles/NN.out.dir/flags.make
+CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o: ../src/TransformFunc.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dc/dev/NN/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o"
+	/usr/bin/g++-5   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o -c /home/dc/dev/NN/src/TransformFunc.cpp
+
+CMakeFiles/NN.out.dir/src/TransformFunc.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NN.out.dir/src/TransformFunc.cpp.i"
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dc/dev/NN/src/TransformFunc.cpp > CMakeFiles/NN.out.dir/src/TransformFunc.cpp.i
+
+CMakeFiles/NN.out.dir/src/TransformFunc.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NN.out.dir/src/TransformFunc.cpp.s"
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dc/dev/NN/src/TransformFunc.cpp -o CMakeFiles/NN.out.dir/src/TransformFunc.cpp.s
+
+CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o.requires:
+
+.PHONY : CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o.requires
+
+CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o.provides: CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o.requires
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o.provides.build
+.PHONY : CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o.provides
+
+CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o.provides.build: CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o
+
+
 # Object files for target NN.out
 NN_out_OBJECTS = \
 "CMakeFiles/NN.out.dir/src/Main.cpp.o" \
-"CMakeFiles/NN.out.dir/src/NN.cpp.o" \
+"CMakeFiles/NN.out.dir/src/Net.cpp.o" \
 "CMakeFiles/NN.out.dir/src/Layer.cpp.o" \
-"CMakeFiles/NN.out.dir/src/Node.cpp.o"
+"CMakeFiles/NN.out.dir/src/Node.cpp.o" \
+"CMakeFiles/NN.out.dir/src/Wire.cpp.o" \
+"CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o"
 
 # External object files for target NN.out
 NN_out_EXTERNAL_OBJECTS =
 
 NN.out: CMakeFiles/NN.out.dir/src/Main.cpp.o
-NN.out: CMakeFiles/NN.out.dir/src/NN.cpp.o
+NN.out: CMakeFiles/NN.out.dir/src/Net.cpp.o
 NN.out: CMakeFiles/NN.out.dir/src/Layer.cpp.o
 NN.out: CMakeFiles/NN.out.dir/src/Node.cpp.o
+NN.out: CMakeFiles/NN.out.dir/src/Wire.cpp.o
+NN.out: CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o
 NN.out: CMakeFiles/NN.out.dir/build.make
 NN.out: CMakeFiles/NN.out.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dc/dev/NN/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable NN.out"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dc/dev/NN/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable NN.out"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/NN.out.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -178,9 +230,11 @@ CMakeFiles/NN.out.dir/build: NN.out
 .PHONY : CMakeFiles/NN.out.dir/build
 
 CMakeFiles/NN.out.dir/requires: CMakeFiles/NN.out.dir/src/Main.cpp.o.requires
-CMakeFiles/NN.out.dir/requires: CMakeFiles/NN.out.dir/src/NN.cpp.o.requires
+CMakeFiles/NN.out.dir/requires: CMakeFiles/NN.out.dir/src/Net.cpp.o.requires
 CMakeFiles/NN.out.dir/requires: CMakeFiles/NN.out.dir/src/Layer.cpp.o.requires
 CMakeFiles/NN.out.dir/requires: CMakeFiles/NN.out.dir/src/Node.cpp.o.requires
+CMakeFiles/NN.out.dir/requires: CMakeFiles/NN.out.dir/src/Wire.cpp.o.requires
+CMakeFiles/NN.out.dir/requires: CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o.requires
 
 .PHONY : CMakeFiles/NN.out.dir/requires
 

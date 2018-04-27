@@ -20,8 +20,10 @@ Node.h
 Common.h
 .././include/Common.h
 
-.././include/NN.h
+.././include/Net.h
 vector
+-
+iostream
 -
 Layer.h
 .././include/Layer.h
@@ -31,23 +33,35 @@ Common.h
 .././include/Node.h
 vector
 -
+iostream
+-
+Wire.h
+.././include/Wire.h
+
+.././include/TransformFunc.h
 
 .././include/Wire.h
+iostream
+-
 
 /home/dc/dev/NN/src/Layer.cpp
 Layer.h
 /home/dc/dev/NN/src/Layer.h
+cstdlib
+-
 
 /home/dc/dev/NN/src/Main.cpp
 iostream
 -
-NN.h
-/home/dc/dev/NN/src/NN.h
+Net.h
+/home/dc/dev/NN/src/Net.h
+cstdlib
+-
 
-/home/dc/dev/NN/src/NN.cpp
-NN.h
-/home/dc/dev/NN/src/NN.h
-iostream
+/home/dc/dev/NN/src/Net.cpp
+Net.h
+/home/dc/dev/NN/src/Net.h
+cstdlib
 -
 
 /home/dc/dev/NN/src/Node.cpp
@@ -55,4 +69,22 @@ Node.h
 /home/dc/dev/NN/src/Node.h
 Wire.h
 /home/dc/dev/NN/src/Wire.h
+cstdlib
+-
+
+/home/dc/dev/NN/src/TransformFunc.cpp
+TransformFunc.h
+/home/dc/dev/NN/src/TransformFunc.h
+math.h
+-
+stdlib.h
+-
+
+/home/dc/dev/NN/src/Wire.cpp
+Wire.h
+/home/dc/dev/NN/src/Wire.h
+Node.h
+/home/dc/dev/NN/src/Node.h
+cstdlib
+-
 

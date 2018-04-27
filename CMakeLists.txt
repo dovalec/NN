@@ -12,6 +12,7 @@ add_executable(NN.out
     src/Layer.cpp
     src/Node.cpp
     src/Wire.cpp
+    src/TransformFunc
     
 )
 
