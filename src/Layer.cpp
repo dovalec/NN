@@ -39,39 +39,41 @@ bool Layer::check() {
 }
  
 
-void Layer::init(int size, bool isInput, bool isOutput, Layer * prevLayer, Layer * nextLayer) {
-    setSize(size);
+void Layer::init(int size) {
+    for (int n = 0; n < size ; n++) {
+
+        Node * node = new Node();
+        mNodes.push_back(node);
+    }
+}
+
+void Layer::connect(Layer * nextLayer) {
     
     
     for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
         Node * node = *iter;
         
-        node->setInputOrOutput(isInput, isOutput);
-                
-        VecWire & nodeWires = node->getWires();
-        if (prevLayer) {
-            for (int n=0;n<prevLayer->getSize() ; n++) 
-            {
-                Node * prevNode = prevLayer->getNode(n);
-                Wire * wire = new Wire();
-                wire->setNode(prevNode);
-                nodeWires.push_back(wire);
-            }
+        VecWire & nodeOutWires = node->getOutWires();
+        
+        for (int n=0;n<nextLayer->getSize() ; n++) 
+        {
+            Node * nextNode = nextLayer->getNode(n);
+            Wire * wire = new Wire();
+            wire->setInNode(node);
+            wire->setOutNode(nextNode);
+            nodeOutWires.push_back(wire);
+
+            VecWire & nextInWires = nextNode->getInWires();
+            nextInWires.push_back(wire);
+        
         }
-         
-    } 
-
-}
-
-void Layer::setSize(int size) {
-    for (int n = 0; n < size ; n++) {
-        mNodes.push_back(new Node());
     }
+        
+
 }
 
 
-
-void Layer::input(VecFloat & in) {
+void Layer::setOutputVal(VecFloat & in) {
     if ( getSize() != in.size() ) {
         std::cout << "Input size is different" << std::endl;
         return;
@@ -80,9 +82,49 @@ void Layer::input(VecFloat & in) {
     int numVals = in.size();
     for (int n=0;n<numVals;n++) {
         Node * node = getNode(n);
-        node->setBias( in[n] );
+        node->setOutput( in[n] );
     }
     
+}
+
+void Layer::gradientTarget() {
+    int numNodes = mNodes.size();
+
+    for (int n=0;n < numNodes ; n++) {
+        float delta = mTraget[n] - mNodes[n]->getOutput();
+        float gradient = delta * mTransformFunc.transformDeriv(mNodes[n]->getOutput());
+        
+    } 
+}
+
+void Layer::gradientHidden(Layer * nextLayer) {
+   
+
+    int numNodes = mNodes.size();
+
+    for (int n=0;n < numNodes ; n++) {
+        float dow = sumDow(mNodes[n], nextLayer);
+        float gradient = dow * mTransformFunc.transformDeriv(mNodes[n]->getOutput());
+        mNodes[n]->setGradient(gradient);
+    } 
+
+}
+
+float Layer::sumDow(Node * node, Layer * nextLayer) {
+    
+    float sum = 0.0f;
+
+    int numNodes = nextLayer->getSize();
+    for (int n=0;n < numNodes; n++) {
+        Node * nextNode = nextLayer->getNode(n);
+        sum += node->getOutWire(n)->getWeight() * nextNode->gradient();
+    }
+
+    return sum;
+}
+
+void Layer::updateWeights() {
+
 }
 
 void Layer::target(VecFloat & target) {
@@ -90,6 +132,8 @@ void Layer::target(VecFloat & target) {
         std::cout << "target size is different" << std::endl;
         return;
     }
+
+    mTraget = target;
 
     // int numVals = target.size();
     // for (int n=0;n<numVals;n++) {
@@ -100,17 +144,14 @@ void Layer::target(VecFloat & target) {
 }
 
 void Layer::setBias(float bias) {
-    for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
-        Node * node = *iter;
-        node->setBias(bias);
-    }
+    mNodes.back()->setOutput(bias);
 }
 
-void Layer::calc() {
-    std::cout << "Calc Layer[ " << mId << " ]" << std::endl; 
+void Layer::feedForward(Layer * prevLayer) {
+    std::cout << "Feed forward Layer[ " << mId << " ]" << std::endl; 
     for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
         Node * node = *iter;
-        node->calc();
+        node->feedForward(prevLayer);
     }
 }
 

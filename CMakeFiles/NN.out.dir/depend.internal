@@ -5,6 +5,7 @@ CMakeFiles/NN.out.dir/src/Layer.cpp.o
  ./include/Common.h
  ./include/Layer.h
  ./include/Node.h
+ ./include/TransformFunc.h
  ./include/Wire.h
  /home/dc/dev/NN/src/Layer.cpp
 CMakeFiles/NN.out.dir/src/Main.cpp.o
@@ -12,6 +13,7 @@ CMakeFiles/NN.out.dir/src/Main.cpp.o
  ./include/Layer.h
  ./include/Net.h
  ./include/Node.h
+ ./include/TransformFunc.h
  ./include/Wire.h
  /home/dc/dev/NN/src/Main.cpp
 CMakeFiles/NN.out.dir/src/Net.cpp.o
@@ -19,12 +21,19 @@ CMakeFiles/NN.out.dir/src/Net.cpp.o
  ./include/Layer.h
  ./include/Net.h
  ./include/Node.h
+ ./include/TransformFunc.h
  ./include/Wire.h
  /home/dc/dev/NN/src/Net.cpp
 CMakeFiles/NN.out.dir/src/Node.cpp.o
+ ./include/Common.h
+ ./include/Layer.h
  ./include/Node.h
+ ./include/TransformFunc.h
  ./include/Wire.h
  /home/dc/dev/NN/src/Node.cpp
+CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o
+ ./include/TransformFunc.h
+ /home/dc/dev/NN/src/TransformFunc.cpp
 CMakeFiles/NN.out.dir/src/Wire.cpp.o
  ./include/Node.h
  ./include/Wire.h

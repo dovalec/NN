@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/NN.out.dir/src/Layer.cpp.o"
   "CMakeFiles/NN.out.dir/src/Node.cpp.o"
   "CMakeFiles/NN.out.dir/src/Wire.cpp.o"
+  "CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o"
   "NN.out.pdb"
   "NN.out"
 )

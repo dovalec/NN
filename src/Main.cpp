@@ -17,10 +17,10 @@ int main(void) {
     nn.init(topology);
     nn.check();
     
-    VecFloat inputs;
-    inputs.push_back(0.1f);
-    inputs.push_back(0.2f);
-    inputs.push_back(0.4f);
+    VecFloat feed;;
+    feed.push_back(0.1f);
+    feed.push_back(0.2f);
+    feed.push_back(0.4f);
     
     
     VecFloat target;
@@ -29,14 +29,11 @@ int main(void) {
     target.push_back(0.9f);
     
 
-    nn.input(inputs);
-    nn.target(target);
-    
     int trainCount = 100;
     while(trainCount--) {
-        std::cout << "---------------------" << trainCount << "---------------------" << std::endl;
-        nn.calc();
-        //nn.debug();
+        nn.feedForward(feed);
+        nn.backProp(target);
+
     }
     
     nn.debug();

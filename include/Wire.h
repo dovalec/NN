@@ -11,14 +11,19 @@ public:
     
     bool check();
     
-    void setNode( Node * pNode);
+    void setInNode( Node * node);
+    void setOutNode( Node * node);
 
     inline float getWeight() {
         return mWeight;
     }
 
-    inline Node * getNode() {
-        return mpNode;
+    inline Node * getInNode() {
+        return mInNode;
+    }
+
+    inline Node * getOutNode() {
+        return mOutNode;
     }
 
     void debug();
@@ -28,5 +33,7 @@ private:
     float mWeight;
     float mDeltaWeight;
     
-    Node * mpNode;
+    Node * mInNode;
+    Node * mOutNode;
+    
 };

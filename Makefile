@@ -628,6 +628,33 @@ src/Node.cpp.s:
 	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Node.cpp.s
 .PHONY : src/Node.cpp.s
 
+src/TransformFunc.o: src/TransformFunc.cpp.o
+
+.PHONY : src/TransformFunc.o
+
+# target to build an object file
+src/TransformFunc.cpp.o:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o
+.PHONY : src/TransformFunc.cpp.o
+
+src/TransformFunc.i: src/TransformFunc.cpp.i
+
+.PHONY : src/TransformFunc.i
+
+# target to preprocess a source file
+src/TransformFunc.cpp.i:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/TransformFunc.cpp.i
+.PHONY : src/TransformFunc.cpp.i
+
+src/TransformFunc.s: src/TransformFunc.cpp.s
+
+.PHONY : src/TransformFunc.s
+
+# target to generate assembly for a file
+src/TransformFunc.cpp.s:
+	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/TransformFunc.cpp.s
+.PHONY : src/TransformFunc.cpp.s
+
 src/Wire.o: src/Wire.cpp.o
 
 .PHONY : src/Wire.o
@@ -707,6 +734,9 @@ help:
 	@echo "... src/Node.o"
 	@echo "... src/Node.i"
 	@echo "... src/Node.s"
+	@echo "... src/TransformFunc.o"
+	@echo "... src/TransformFunc.i"
+	@echo "... src/TransformFunc.s"
 	@echo "... src/Wire.o"
 	@echo "... src/Wire.i"
 	@echo "... src/Wire.s"

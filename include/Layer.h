@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "Node.h"
+#include "TransformFunc.h"
 #include "Common.h"
 
 typedef std::vector<Node*> VecNode;
@@ -15,17 +16,16 @@ public:
 
     bool check();
     
-    void init(int size, bool isInput, bool isOutput, Layer * prevLayer, Layer * nextLayer);
-    
-    void setSize(int size);
+    void init(int size);
+    void connect(Layer * nextLayer);
     
     inline int getSize() {
         return mNodes.size();
     }
     
     void setBias(float bias);
+    void setOutputVal(VecFloat & in);
 
-    void input(VecFloat & in);
     void target(VecFloat & target);
 
     inline Node * getNode(int n) {
@@ -36,10 +36,21 @@ public:
         return mNodes;
     }
     
-    void calc();
+    inline VecFloat & getTarget() {
+        return mTraget;
+    }
+    
+    float sumDow(Node * node, Layer * nextLayer);
+    void gradientTarget();
+    void gradientHidden(Layer * nextLayer);
+    void updateWeights();
+
+    void feedForward(Layer * prevLayer);
     void debug();
 
 private:
     VecNode mNodes;
+    VecFloat mTraget;
+    TransformFunc mTransformFunc;
     int mId;
 };

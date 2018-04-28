@@ -17,6 +17,8 @@ iostream
 -
 Node.h
 ./include/Node.h
+TransformFunc.h
+./include/TransformFunc.h
 Common.h
 ./include/Common.h
 
@@ -37,6 +39,8 @@ iostream
 -
 Wire.h
 ./include/Wire.h
+
+./include/TransformFunc.h
 
 ./include/Wire.h
 iostream
@@ -61,13 +65,25 @@ Net.h
 /home/dc/dev/NN/src/Net.h
 cstdlib
 -
+cmath
+-
 
 /home/dc/dev/NN/src/Node.cpp
 Node.h
 /home/dc/dev/NN/src/Node.h
 Wire.h
 /home/dc/dev/NN/src/Wire.h
+Layer.h
+/home/dc/dev/NN/src/Layer.h
 cstdlib
+-
+
+/home/dc/dev/NN/src/TransformFunc.cpp
+TransformFunc.h
+/home/dc/dev/NN/src/TransformFunc.h
+cmath
+-
+stdlib.h
 -
 
 /home/dc/dev/NN/src/Wire.cpp

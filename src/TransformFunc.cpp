@@ -1,5 +1,5 @@
 #include "TransformFunc.h"
-#include <math.h>
+#include <cmath>
 #include <stdlib.h> 
 
 TransformFunc::TransformFunc() {
@@ -36,6 +36,6 @@ float TransformFunc::transform(float x) {
     }
 }
 
-float TransformFunc::transformcDeriv(float x) {
-    return 1.0f - x*x; 
+float TransformFunc::transformDeriv(float x) {
+    return 1 - x*x; 
 }

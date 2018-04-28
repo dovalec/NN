@@ -1,5 +1,6 @@
 #include "Node.h"
 #include "Wire.h"
+#include "Layer.h"
 
 #include <cstdlib>
 
@@ -8,10 +9,9 @@ Node::Node() {
      std::cout << "Constructed Node: " << mId << std::endl; 
          
      mOutputVal = 0;
+     mGradient = 0;
      mBias = 0;
      
-     mInput = false;
-     mOutput = false;
      
  }
  
@@ -19,8 +19,8 @@ Node::~Node() {
 
     std::cout << "Destruct Node: " << mId << std::endl; 
 
-    for (int n=0;n<mWires.size() ; n++)
-        delete mWires[n];
+    for (int n=0;n<mOutWires.size() ; n++)
+        delete mOutWires[n];
 }
 
 bool Node::check() {
@@ -33,13 +33,13 @@ bool Node::check() {
     }
     
     
-    if (mInput == false && mWires.size() == 0) {
-         std::cout << "Error at Node[" << mId << "] - No Wires." << std::endl; 
-         return false;
+    if (mOutWires.size() == 0 && mInWires.size() == 0) {
+          std::cout << "Error at Node[" << mId << "] - No IN/OUT WiIes." << std::endl; 
+          return false;
     }
     
     
-    for (VecWireIter iter = mWires.begin() ; iter != mWires.end() ; iter++) {
+    for (VecWireIter iter = mOutWires.begin() ; iter != mOutWires.end() ; iter++) {
         Wire * wire = *iter;
        if (!wire->check())
         return false;
@@ -48,24 +48,22 @@ bool Node::check() {
     return true;
 }
 
-void Node::setInputOrOutput(bool input, bool output) {
-    mInput = input;
-    mOutput = output;
-}
-
-
 void Node::setBias(float bias) {
     mBias = bias;
 }
 
-void Node::calc() {
-    std::cout << "Calc Node[ " << mId << " ]" << std::endl; 
+void Node::feedForward(Layer * prevLayer) {
+    std::cout << "Feed forward Node[ " << mId << " ]" << std::endl; 
     
     float sum = 0;
-    for ( VecWireIter iter = mWires.begin() ; iter != mWires.end() ; iter++)
+    VecNode & prevNodes = prevLayer->getNodes();
+
+    //std::cout << prevNodes.size() << " " << mInWires.size() << std::endl;
+    for ( int n=0 ; n < prevNodes.size() ; n++)
     {
-        Wire * wire = *iter; 
-        sum += wire->getWeight() * wire->getNode()->getOutput();
+        Node * prevNode = prevNodes[n];
+        Wire * inWire = mInWires[n]; 
+        sum += prevNode->getOutput() * inWire->getWeight();
     }
     
     mOutputVal = mBias + sum;
@@ -74,7 +72,7 @@ void Node::calc() {
 
 void Node::debug() {
     std::cout << "\t\t\tNode[ " << mId << " ] " << mOutputVal << std::endl; 
-    for ( VecWireIter iter = mWires.begin() ; iter != mWires.end() ; iter++)
+    for ( VecWireIter iter = mOutWires.begin() ; iter != mOutWires.end() ; iter++)
     {
         Wire * wire = *iter; 
         wire->debug();

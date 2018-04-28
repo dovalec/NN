@@ -7,7 +7,9 @@ Wire::Wire() {
     mId = std::rand();
     std::cout << "Constructed Wire: " << mId << std::endl; 
          
-    mpNode = NULL;
+    mInNode = NULL;
+    mOutNode = NULL;
+    
     mWeight = (float)std::rand() / (float)RAND_MAX;
     mDeltaWeight = 0;
 }
@@ -17,10 +19,14 @@ Wire::~Wire() {
 
 }
 
-void Wire::setNode( Node * pNode) {
-    mpNode = pNode;
+void Wire::setInNode( Node * node) {
+    mInNode = node;
 }
     
+void Wire::setOutNode( Node * node) {
+    mOutNode = node;
+}
+
 bool Wire::check() {
     
     std::cout << "Checking Wire[" << mId << "]" << std::endl; 
@@ -30,8 +36,14 @@ bool Wire::check() {
          return false;
     }
     
-    if (mpNode == NULL) {
-         std::cout << "Error at Wire[" << mId << "] - No node attached." << std::endl; 
+    if (mInNode == NULL) {
+         std::cout << "Error at Wire[" << mId << "] - No IN node attached." << std::endl; 
+         return false;
+    }
+    
+
+    if (mOutNode == NULL) {
+         std::cout << "Error at Wire[" << mId << "] - No OUT node attached." << std::endl; 
          return false;
     }
     

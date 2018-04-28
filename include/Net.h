@@ -17,18 +17,22 @@ public:
     
     bool check();
     
-    void input(VecFloat & in);
+    void feedForward(VecFloat & in);
     void target(VecFloat & traget);
 
-    void calc();
-    void backProp();
-    float rmse();
-
+    void feedForward();
+    void backProp(VecFloat & target);
+    void rmse();
+    void gradient();
+    void updateWeights();
     void init(VecTopology & topology);
     void debug();
     
 private:
     int mId;
     float mError;
+    float mAvgError;
+    float mAvgErrorFactor;
+
     VecLayer mLayers;
 };
