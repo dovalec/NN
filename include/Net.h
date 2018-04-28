@@ -18,15 +18,17 @@ public:
     bool check();
     
     void feedForward(VecFloat & in);
-    void target(VecFloat & traget);
-
-    void feedForward();
     void backProp(VecFloat & target);
-    void rmse();
-    void gradient();
+    void rmse(VecFloat & target);
+    void gradient(VecFloat & target);
     void updateWeights();
     void init(VecTopology & topology);
     void debug();
+
+
+    inline float avgError() {
+        return mAvgError;
+    }
     
 private:
     int mId;

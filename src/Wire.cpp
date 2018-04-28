@@ -5,17 +5,17 @@
 
 Wire::Wire() {
     mId = std::rand();
-    std::cout << "Constructed Wire: " << mId << std::endl; 
+    //std::cout << "Constructed Wire: " << mId << std::endl; 
          
     mInNode = NULL;
     mOutNode = NULL;
     
     mWeight = (float)std::rand() / (float)RAND_MAX;
-    mDeltaWeight = 0;
+    mDeltaWeight = 1.0;
 }
 
 Wire::~Wire() {
-    std::cout << "Destruct Wire: " << mId << std::endl; 
+    //std::cout << "Destruct Wire: " << mId << std::endl; 
 
 }
 

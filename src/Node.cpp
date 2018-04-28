@@ -6,7 +6,7 @@
 
 Node::Node() {
      mId = std::rand();
-     std::cout << "Constructed Node: " << mId << std::endl; 
+     //std::cout << "Constructed Node: " << mId << std::endl; 
          
      mOutputVal = 0;
      mGradient = 0;
@@ -17,7 +17,7 @@ Node::Node() {
  
 Node::~Node() {
 
-    std::cout << "Destruct Node: " << mId << std::endl; 
+    //std::cout << "Destruct Node: " << mId << std::endl; 
 
     for (int n=0;n<mOutWires.size() ; n++)
         delete mOutWires[n];
@@ -53,7 +53,7 @@ void Node::setBias(float bias) {
 }
 
 void Node::feedForward(Layer * prevLayer) {
-    std::cout << "Feed forward Node[ " << mId << " ]" << std::endl; 
+    //std::cout << "Feed forward Node[ " << mId << " ]" << std::endl; 
     
     float sum = 0;
     VecNode & prevNodes = prevLayer->getNodes();

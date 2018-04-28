@@ -59,6 +59,8 @@ Net.h
 /home/dc/dev/NN/src/Net.h
 cstdlib
 -
+stdio.h
+-
 
 /home/dc/dev/NN/src/Net.cpp
 Net.h

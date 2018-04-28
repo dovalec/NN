@@ -4,11 +4,11 @@
 
 Layer::Layer() {
     mId = std::rand();
-    std::cout << "Constructed Layer: " << mId<< std::endl; 
+    //std::cout << "Constructed Layer: " << mId<< std::endl; 
 }
 
 Layer::~Layer() {
-    std::cout << "Destruct Layer: " << mId<< std::endl; 
+    //std::cout << "Destruct Layer: " << mId<< std::endl; 
 
     for (int n=0;n<mNodes.size() ; n++)
         delete mNodes[n];
@@ -87,11 +87,17 @@ void Layer::setOutputVal(VecFloat & in) {
     
 }
 
-void Layer::gradientTarget() {
+void Layer::gradientTarget(VecFloat & target) {
+
+    if ( getSize() != target.size() ) {
+        std::cout << "Error Target size != Layer size" << std::endl;
+        return;
+    }
+
     int numNodes = mNodes.size();
 
     for (int n=0;n < numNodes ; n++) {
-        float delta = mTraget[n] - mNodes[n]->getOutput();
+        float delta = target[n] - mNodes[n]->getOutput();
         float gradient = delta * mTransformFunc.transformDeriv(mNodes[n]->getOutput());
         
     } 
@@ -123,24 +129,23 @@ float Layer::sumDow(Node * node, Layer * nextLayer) {
     return sum;
 }
 
-void Layer::updateWeights() {
+void Layer::updateWeights(Layer * prevLayer) {
 
-}
+    float ETA = 0.15;
+    float ALPHA = 0.5;
 
-void Layer::target(VecFloat & target) {
-    if ( getSize() != target.size() ) {
-        std::cout << "target size is different" << std::endl;
-        return;
+    for (int n=0;n<mNodes.size();n++) {
+        Node * node = mNodes[n];
+        for (int p = 0 ; p<prevLayer->getSize() ; p++)
+        {
+            Node * prevNode = prevLayer->getNode(p);
+            float oldDelta = prevNode->getOutWire(n)->getDeltaWeight();
+            float newDelta = ETA*prevNode->getOutput()*node->gradient() + ALPHA*oldDelta;
+
+            prevNode->getOutWire(n)->setDeltaWeight(newDelta);
+            prevNode->getOutWire(n)->setWeight(prevNode->getOutWire(n)->getWeight() + newDelta );
+        }
     }
-
-    mTraget = target;
-
-    // int numVals = target.size();
-    // for (int n=0;n<numVals;n++) {
-    //     Node * node = getNode(n);
-    //     node->setBias( in[n] );
-    // }
-    
 }
 
 void Layer::setBias(float bias) {
@@ -148,7 +153,7 @@ void Layer::setBias(float bias) {
 }
 
 void Layer::feedForward(Layer * prevLayer) {
-    std::cout << "Feed forward Layer[ " << mId << " ]" << std::endl; 
+    //std::cout << "Feed forward Layer[ " << mId << " ]" << std::endl; 
     for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
         Node * node = *iter;
         node->feedForward(prevLayer);

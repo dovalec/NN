@@ -7,32 +7,32 @@ Net::Net() {
     mId = std::rand();
     mError = 0;
 
-    std::cout << "Constructed Net: " << mId << std::endl; 
+    //std::cout << "Constructed Net: " << mId << std::endl; 
 
     mAvgErrorFactor = 100;
 
 }
  
 Net::~Net() {
-    std::cout << "Destruct Net: " << mId << std::endl; 
+    //std::cout << "Destruct Net: " << mId << std::endl; 
 
     for (int n=0;n<mLayers.size() ; n++)
         delete mLayers[n];
 }
 
 
-void Net::backProp(VecFloat & targetVals) {
+void Net::backProp(VecFloat & target) {
 
-   rmse();
-   gradient();
+   rmse(target);
+   gradient(target);
+   updateWeights();
 
 }
 
-void Net::rmse() {
+void Net::rmse(VecFloat & target) {
 
     mError = 0;
     
-    VecFloat & target = mLayers.back()->getTarget();
     VecNode & outpuNodes = mLayers.back()->getNodes();
     
     int targetSize = target.size();
@@ -51,8 +51,8 @@ void Net::rmse() {
 }
 
 
-void Net::gradient() {
-    mLayers.back()->gradientTarget();
+void Net::gradient(VecFloat & target) {
+    mLayers.back()->gradientTarget(target);
 
     for (int n=mLayers.size()-2 ; n > 0 ; n--) {
         Layer * layer = mLayers[n];
@@ -61,6 +61,13 @@ void Net::gradient() {
     }      
 }
 
+void Net::updateWeights() {
+    for (int n=mLayers.size()-1 ; n > 0 ; n--) {
+        Layer * layer = mLayers[n];
+        Layer * prevLayer = mLayers[n-1];
+        layer->updateWeights(prevLayer);
+    }
+}
 
 bool Net::check() {
     
@@ -89,16 +96,12 @@ bool Net::check() {
 void Net::feedForward(VecFloat & in) {
    mLayers[0]->setOutputVal(in);
 
-   std::cout << "Feed forward Net[ " << mId << " ]" << std::endl;
+   //std::cout << "Feed forward Net[ " << mId << " ]" << std::endl;
 
     int numLayers = mLayers.size();
     for (int n=1;n<numLayers;n++) {
         mLayers[n]->feedForward(mLayers[n-1]);
     }   
-}
-
-void Net::target(VecFloat & target) {
-   mLayers.back()->target(target);
 }
 
 

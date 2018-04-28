@@ -18,6 +18,19 @@ public:
         return mWeight;
     }
 
+    float setWeight(float weight) {
+        mWeight = weight;
+    }
+
+    float setDeltaWeight(float weight) {
+        mDeltaWeight = weight;
+    }
+
+
+    inline float getDeltaWeight() {
+        return mDeltaWeight;
+    }
+
     inline Node * getInNode() {
         return mInNode;
     }

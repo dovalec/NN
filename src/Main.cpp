@@ -2,6 +2,7 @@
 #include "Net.h"
 
 #include <cstdlib>
+#include <stdio.h>
 
 int main(void) {
     std::cout << "NN" << std::endl;
@@ -27,15 +28,17 @@ int main(void) {
     target.push_back(0.4f);
     target.push_back(0.5f);
     target.push_back(0.9f);
-    
+    target.push_back(0.3f);
 
     int trainCount = 100;
     while(trainCount--) {
         nn.feedForward(feed);
         nn.backProp(target);
+        std::cout << "Avg error: " <<  nn.avgError() << std::endl;
+        //printf("AvgError: %f\n", nn.avgError());
 
     }
     
-    nn.debug();
+    //nn.debug();
     return 0;
 }

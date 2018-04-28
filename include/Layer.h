@@ -26,8 +26,6 @@ public:
     void setBias(float bias);
     void setOutputVal(VecFloat & in);
 
-    void target(VecFloat & target);
-
     inline Node * getNode(int n) {
         return mNodes[n]; 
     }
@@ -36,21 +34,16 @@ public:
         return mNodes;
     }
     
-    inline VecFloat & getTarget() {
-        return mTraget;
-    }
-    
     float sumDow(Node * node, Layer * nextLayer);
-    void gradientTarget();
+    void gradientTarget(VecFloat & target);
     void gradientHidden(Layer * nextLayer);
-    void updateWeights();
+    void updateWeights(Layer * prevLayer);
 
     void feedForward(Layer * prevLayer);
     void debug();
 
 private:
     VecNode mNodes;
-    VecFloat mTraget;
     TransformFunc mTransformFunc;
     int mId;
 };
