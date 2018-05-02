@@ -55,12 +55,14 @@ cstdlib
 /home/dc/dev/NN/src/Main.cpp
 iostream
 -
-Net.h
-/home/dc/dev/NN/src/Net.h
 cstdlib
 -
 stdio.h
 -
+Net.h
+/home/dc/dev/NN/src/Net.h
+Layer.h
+/home/dc/dev/NN/src/Layer.h
 
 /home/dc/dev/NN/src/Net.cpp
 Net.h
@@ -79,6 +81,8 @@ Layer.h
 /home/dc/dev/NN/src/Layer.h
 cstdlib
 -
+TransformFunc.h
+/home/dc/dev/NN/src/TransformFunc.h
 
 /home/dc/dev/NN/src/TransformFunc.cpp
 TransformFunc.h

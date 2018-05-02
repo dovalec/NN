@@ -94,9 +94,7 @@ void Layer::gradientTarget(VecFloat & target) {
         return;
     }
 
-    int numNodes = mNodes.size();
-
-    for (int n=0;n < numNodes ; n++) {
+    for (int n=0;n < mNodes.size() ; n++) {
         float delta = target[n] - mNodes[n]->getOutput();
         float gradient = delta * mTransformFunc.transformDeriv(mNodes[n]->getOutput());
         
@@ -140,7 +138,7 @@ void Layer::updateWeights(Layer * prevLayer) {
         {
             Node * prevNode = prevLayer->getNode(p);
             float oldDelta = prevNode->getOutWire(n)->getDeltaWeight();
-            float newDelta = ETA*prevNode->getOutput()*node->gradient() + ALPHA*oldDelta;
+            float newDelta = ETA * prevNode->getOutput() * node->gradient() + ALPHA * oldDelta;
 
             prevNode->getOutWire(n)->setDeltaWeight(newDelta);
             prevNode->getOutWire(n)->setWeight(prevNode->getOutWire(n)->getWeight() + newDelta );
@@ -154,8 +152,8 @@ void Layer::setBias(float bias) {
 
 void Layer::feedForward(Layer * prevLayer) {
     //std::cout << "Feed forward Layer[ " << mId << " ]" << std::endl; 
-    for (VecNodeIter iter = mNodes.begin() ; iter != mNodes.end() ; iter++) {
-        Node * node = *iter;
+    for (int n=0; n < mNodes.size() ; n++) {
+        Node * node = mNodes[n];
         node->feedForward(prevLayer);
     }
 }

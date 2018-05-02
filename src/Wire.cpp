@@ -11,7 +11,7 @@ Wire::Wire() {
     mOutNode = NULL;
     
     mWeight = (float)std::rand() / (float)RAND_MAX;
-    mDeltaWeight = 1.0;
+    mDeltaWeight = 0.0;
 }
 
 Wire::~Wire() {

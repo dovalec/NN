@@ -3,6 +3,7 @@
 #include "Layer.h"
 
 #include <cstdlib>
+#include "TransformFunc.h"
 
 Node::Node() {
      mId = std::rand();
@@ -66,7 +67,8 @@ void Node::feedForward(Layer * prevLayer) {
         sum += prevNode->getOutput() * inWire->getWeight();
     }
     
-    mOutputVal = mBias + sum;
+    TransformFunc trans;
+    mOutputVal = trans.transform(sum);
     
 }
 

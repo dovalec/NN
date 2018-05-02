@@ -43,10 +43,10 @@ void Net::rmse(VecFloat & target) {
         mError += delta * delta;
     }
 
-    mError /= (float)targetSize;
+    mError /= (float)targetSize - 1;
     mError = sqrt(mError);
 
-    mAvgError += (mAvgError * mAvgErrorFactor + mAvgError) / (mAvgErrorFactor + 1.0);
+    mAvgError = (mAvgError * mAvgErrorFactor + mError) / (mAvgErrorFactor + 1.0);
     
 }
 

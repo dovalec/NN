@@ -19,6 +19,8 @@ public:
     }
 
     float setWeight(float weight) {
+        //std::cout << weight << std::endl;
+
         mWeight = weight;
     }
 

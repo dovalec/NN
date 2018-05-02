@@ -1,8 +1,10 @@
 #include <iostream>
-#include "Net.h"
-
 #include <cstdlib>
 #include <stdio.h>
+
+#include "Net.h"
+#include "Layer.h"
+
 
 int main(void) {
     std::cout << "NN" << std::endl;
@@ -16,7 +18,7 @@ int main(void) {
     topology.push_back(4);
     
     nn.init(topology);
-    nn.check();
+   // nn.check();
     
     VecFloat feed;;
     feed.push_back(0.1f);
@@ -32,11 +34,17 @@ int main(void) {
 
     int trainCount = 100;
     while(trainCount--) {
-        nn.feedForward(feed);
-        nn.backProp(target);
-        std::cout << "Avg error: " <<  nn.avgError() << std::endl;
-        //printf("AvgError: %f\n", nn.avgError());
 
+        nn.feedForward(feed);
+        VecNode & outputNodes = nn.getLayers().back()->getNodes();
+        for (int n=0;n<outputNodes.size() ; n++) {
+            std::cout << outputNodes[n]->getOutput() << " ";
+        }
+        std::cout << std::endl;
+        
+        nn.backProp(target);
+
+        //std::cout << "Avg error: " <<  nn.avgError() << std::endl;
     }
     
     //nn.debug();

@@ -25,6 +25,9 @@ public:
     void init(VecTopology & topology);
     void debug();
 
+    inline VecLayer & getLayers() {
+        return mLayers;
+    }
 
     inline float avgError() {
         return mAvgError;
