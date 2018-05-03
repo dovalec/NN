@@ -655,33 +655,6 @@ src/TransformFunc.cpp.s:
 	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/TransformFunc.cpp.s
 .PHONY : src/TransformFunc.cpp.s
 
-src/Wire.o: src/Wire.cpp.o
-
-.PHONY : src/Wire.o
-
-# target to build an object file
-src/Wire.cpp.o:
-	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Wire.cpp.o
-.PHONY : src/Wire.cpp.o
-
-src/Wire.i: src/Wire.cpp.i
-
-.PHONY : src/Wire.i
-
-# target to preprocess a source file
-src/Wire.cpp.i:
-	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Wire.cpp.i
-.PHONY : src/Wire.cpp.i
-
-src/Wire.s: src/Wire.cpp.s
-
-.PHONY : src/Wire.s
-
-# target to generate assembly for a file
-src/Wire.cpp.s:
-	$(MAKE) -f CMakeFiles/NN.out.dir/build.make CMakeFiles/NN.out.dir/src/Wire.cpp.s
-.PHONY : src/Wire.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -737,9 +710,6 @@ help:
 	@echo "... src/TransformFunc.o"
 	@echo "... src/TransformFunc.i"
 	@echo "... src/TransformFunc.s"
-	@echo "... src/Wire.o"
-	@echo "... src/Wire.i"
-	@echo "... src/Wire.s"
 .PHONY : help
 
 

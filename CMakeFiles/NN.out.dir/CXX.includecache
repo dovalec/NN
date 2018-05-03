@@ -37,14 +37,10 @@ vector
 -
 iostream
 -
-Wire.h
-./include/Wire.h
+Common.h
+./include/Common.h
 
 ./include/TransformFunc.h
-
-./include/Wire.h
-iostream
--
 
 /home/dc/dev/NN/src/Layer.cpp
 Layer.h
@@ -55,12 +51,14 @@ cstdlib
 /home/dc/dev/NN/src/Main.cpp
 iostream
 -
-Net.h
-/home/dc/dev/NN/src/Net.h
 cstdlib
 -
 stdio.h
 -
+Net.h
+/home/dc/dev/NN/src/Net.h
+Layer.h
+/home/dc/dev/NN/src/Layer.h
 
 /home/dc/dev/NN/src/Net.cpp
 Net.h
@@ -73,8 +71,6 @@ cmath
 /home/dc/dev/NN/src/Node.cpp
 Node.h
 /home/dc/dev/NN/src/Node.h
-Wire.h
-/home/dc/dev/NN/src/Wire.h
 Layer.h
 /home/dc/dev/NN/src/Layer.h
 cstdlib
@@ -88,13 +84,5 @@ TransformFunc.h
 cmath
 -
 stdlib.h
--
-
-/home/dc/dev/NN/src/Wire.cpp
-Wire.h
-/home/dc/dev/NN/src/Wire.h
-Node.h
-/home/dc/dev/NN/src/Node.h
-cstdlib
 -
 

@@ -1,9 +1,10 @@
 #include "Node.h"
-#include "Wire.h"
 #include "Layer.h"
 
 #include <cstdlib>
-#include "TransformFunc.h"
+
+#include <cmath>
+
 
 Node::Node() {
      mId = std::rand();
@@ -19,9 +20,6 @@ Node::Node() {
 Node::~Node() {
 
     //std::cout << "Destruct Node: " << mId << std::endl; 
-
-    for (int n=0;n<mOutWires.size() ; n++)
-        delete mOutWires[n];
 }
 
 bool Node::check() {
@@ -34,18 +32,6 @@ bool Node::check() {
     }
     
     
-    if (mOutWires.size() == 0 && mInWires.size() == 0) {
-          std::cout << "Error at Node[" << mId << "] - No IN/OUT WiIes." << std::endl; 
-          return false;
-    }
-    
-    
-    for (VecWireIter iter = mOutWires.begin() ; iter != mOutWires.end() ; iter++) {
-        Wire * wire = *iter;
-       if (!wire->check())
-        return false;
-    }
-    
     return true;
 }
 
@@ -53,9 +39,24 @@ void Node::setBias(float bias) {
     mBias = bias;
 }
 
-void Node::feedForward(Layer * prevLayer) {
+void Node::initWeights(int nextLayerSize) {
+    for (int n=0 ; n < nextLayerSize ; n++)
+    {
+        mWeights.push_back((float)rand() / (float)RAND_MAX);
+    }
+}
+void Node::feedForward(Layer * prevLayer, int i) {
     //std::cout << "Feed forward Node[ " << mId << " ]" << std::endl; 
     
+    float act=activation(prevLayer, i);
+    mOutputVal = transfer(act);
+}
+
+float Node::transfer(float activation) {
+	return 1.0 / (1.0 + exp(-1.0 * activation));
+}
+
+float Node::activation(Layer * prevLayer, int i) {
     float sum = 0;
     VecNode & prevNodes = prevLayer->getNodes();
 
@@ -63,21 +64,14 @@ void Node::feedForward(Layer * prevLayer) {
     for ( int n=0 ; n < prevNodes.size() ; n++)
     {
         Node * prevNode = prevNodes[n];
-        Wire * inWire = mInWires[n]; 
-        sum += prevNode->getOutput() * inWire->getWeight();
+        sum += prevNode->getOutput() * prevNode->getWeight(i);
     }
     
-    TransformFunc trans;
-    mOutputVal = trans.transform(sum);
-    
+    return sum;
 }
 
 void Node::debug() {
     std::cout << "\t\t\tNode[ " << mId << " ] " << mOutputVal << std::endl; 
-    for ( VecWireIter iter = mOutWires.begin() ; iter != mOutWires.end() ; iter++)
-    {
-        Wire * wire = *iter; 
-        wire->debug();
-    }
+    
 }
 

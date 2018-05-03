@@ -17,7 +17,7 @@ public:
     bool check();
     
     void init(int size);
-    void connect(Layer * nextLayer);
+    void initWeights(int nextLayerSize);
     
     inline int getSize() {
         return mNodes.size();

@@ -1,11 +1,7 @@
 #pragma once
 #include <vector>
 #include <iostream>
-
-#include "Wire.h"
-
-typedef std::vector<Wire*> VecWire;
-typedef std::vector<Wire*>::iterator VecWireIter;
+#include "Common.h"
 
 class Layer;
 class Node {
@@ -25,24 +21,21 @@ public:
         mOutputVal = output;
     }
 
-    inline VecWire & getInWires() {
-        return mInWires;
-    }
-    
-    inline Wire * getInWire(int n) {
-        return mInWires[n];
+    inline float getWeight(int i) {
+        return mWeights[i];
     }
 
-    inline VecWire & getOutWires() {
-        return mOutWires;
-    }
-    
-    inline Wire * getOutWire(int n) {
-        return mOutWires[n];
+    void initWeights(int nextLayerSize);
+
+    inline VecFloat & getWeights() {
+        return mWeights;
     }
 
     void setBias(float bias);
-    void feedForward(Layer * prevLayer);
+    void feedForward(Layer * prevLayer, int i);
+    float activation(Layer * prevLayer, int i);
+    float transfer(float activation);
+
     inline float gradient() {
         return mGradient;
     }
@@ -61,7 +54,6 @@ private:
     float mBias;
     float mDow;
     float mGradient;
-    VecWire mInWires;
-    VecWire mOutWires;
+    VecFloat mWeights;
     
 };

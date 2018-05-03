@@ -114,9 +114,9 @@ void Net::init(VecTopology & topology) {
         mLayers.push_back(layer);
     }
 
-    
+
     for (int n = 0; n < mLayers.size()-1 ; n++) {
-        mLayers[n]->connect( mLayers[n+1]);
+        mLayers[n]->initWeights( mLayers[n+1]->getSize());
     }
     
 }
