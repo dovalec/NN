@@ -13,7 +13,7 @@ Node::Node() {
      mOutputVal = 0;
      mGradient = 0;
      mBias = 0;
-     
+     mTransFunc.setType(TF_EXP);
      
  }
  
@@ -56,14 +56,13 @@ void Node::feedForward(Layer * prevLayer, int i) {
 }
 
 float Node::transfer(float activation) {
-	return 1.0 / (1.0 + exp(-1.0 * activation));
+    return mTransFunc.transform(activation);
 }
 
 float Node::activation(Layer * prevLayer, int i) {
     float sum = 0;
     VecNode & prevNodes = prevLayer->getNodes();
 
-    //std::cout << prevNodes.size() << " " << mInWires.size() << std::endl;
     for ( int n=0 ; n < prevNodes.size() ; n++)
     {
         Node * prevNode = prevNodes[n];

@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include "Common.h"
+#include "TransformFunc.h"
 
 class Layer;
 class Node {
@@ -74,4 +75,5 @@ private:
     VecFloat mWeights;
     VecFloat mDeltaWeights;
     
+    TransformFunc mTransFunc;
 };

@@ -19,8 +19,8 @@ public:
     
     void feedForward(VecFloat & in);
     void backProp(VecFloat & target);
-    void rmse(VecFloat & target);
-    void gradient(VecFloat & target);
+    void calcRmse(VecFloat & target);
+    void calcGradients(VecFloat & target);
     void updateWeights();
     void init(VecTopology & topology);
     void debug();

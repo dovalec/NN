@@ -24,13 +24,13 @@ Net::~Net() {
 
 void Net::backProp(VecFloat & target) {
 
-   rmse(target);
-   gradient(target);
+   calcRmse(target);
+   calcGradients(target);
    updateWeights();
 
 }
 
-void Net::rmse(VecFloat & target) {
+void Net::calcRmse(VecFloat & target) {
 
     mError = 0;
     
@@ -52,7 +52,7 @@ void Net::rmse(VecFloat & target) {
 }
 
 
-void Net::gradient(VecFloat & target) {
+void Net::calcGradients(VecFloat & target) {
     mLayers.back()->gradientTarget(target);
 
     for (int n=mLayers.size()-2 ; n > 0 ; n--) {
