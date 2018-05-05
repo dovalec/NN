@@ -90,6 +90,7 @@ void Layer::gradientTarget(VecFloat &target)
     {
         float delta = target[n] - mNodes[n]->getOutput();
         float gradient = delta * mTransformFunc.transformDeriv(mNodes[n]->getOutput());
+        mNodes[n]->setGradient(gradient);
     }
 }
 
@@ -124,21 +125,21 @@ float Layer::sumDow(Node *node, Layer *nextLayer)
 void Layer::updateWeights(Layer *prevLayer)
 {
 
-    // float ETA = 0.15;
-    // float ALPHA = 0.5;
+    float ETA = 0.15;
+    float ALPHA = 0.5;
 
-    // for (int n=0;n<mNodes.size();n++) {
-    //     Node * node = mNodes[n];
-    //     for (int p = 0 ; p<prevLayer->getSize() ; p++)
-    //     {
-    //         Node * prevNode = prevLayer->getNode(p);
-    //         float oldDelta = prevNode->getOutWire(n)->getDeltaWeight();
-    //         float newDelta = ETA * prevNode->getOutput() * node->gradient() + ALPHA * oldDelta;
+    for (int n=0;n<mNodes.size();n++) {
+        Node * node = mNodes[n];
+        for (int p = 0 ; p<prevLayer->getSize() ; p++)
+        {
+            Node * prevNode = prevLayer->getNode(p);
+            float oldDelta = prevNode->getDeltaWeight(n);
+            float newDelta = ETA * prevNode->getOutput() * node->gradient() + ALPHA * oldDelta;
 
-    //         prevNode->getOutWire(n)->setDeltaWeight(newDelta);
-    //         prevNode->getOutWire(n)->setWeight(prevNode->getOutWire(n)->getWeight() + newDelta );
-    //     }
-    // }
+            prevNode->setDeltaWeight(n, newDelta);
+            prevNode->setWeight(n, prevNode->getWeight(n) + newDelta);
+        }
+    }
 }
 
 void Layer::setBias(float bias)

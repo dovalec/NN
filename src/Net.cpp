@@ -6,11 +6,12 @@
 Net::Net() {
     mId = std::rand();
     mError = 0;
+    mAvgError = 1.0;
+    mAvgErrorFactor = 100;
 
     //std::cout << "Constructed Net: " << mId << std::endl; 
 
-    mAvgErrorFactor = 100;
-
+  
 }
  
 Net::~Net() {

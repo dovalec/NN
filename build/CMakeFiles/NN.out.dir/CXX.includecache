@@ -55,6 +55,8 @@ cstdlib
 -
 stdio.h
 -
+time.h
+-
 Net.h
 /home/dc/dev/NN/src/Net.h
 Layer.h
@@ -73,6 +75,8 @@ Node.h
 /home/dc/dev/NN/src/Node.h
 Layer.h
 /home/dc/dev/NN/src/Layer.h
+stdio.h
+-
 cstdlib
 -
 cmath

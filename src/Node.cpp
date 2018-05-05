@@ -1,6 +1,6 @@
 #include "Node.h"
 #include "Layer.h"
-
+#include <stdio.h>
 #include <cstdlib>
 
 #include <cmath>
@@ -42,7 +42,10 @@ void Node::setBias(float bias) {
 void Node::initWeights(int nextLayerSize) {
     for (int n=0 ; n < nextLayerSize ; n++)
     {
-        mWeights.push_back((float)rand() / (float)RAND_MAX);
+        float w = (float)rand() / (float)RAND_MAX;
+        //printf("%f\n",w);
+        mWeights.push_back(w);
+        mDeltaWeights.push_back(0);
     }
 }
 void Node::feedForward(Layer * prevLayer, int i) {

@@ -1,14 +1,20 @@
 #include <iostream>
 #include <cstdlib>
 #include <stdio.h>
+#include <time.h>
 
 #include "Net.h"
 #include "Layer.h"
 
 
 int main(void) {
+    time_t t;
+  
+    srand((unsigned) time(&t));
+
     std::cout << "NN" << std::endl;
     Net nn;
+
 
     VecTopology topology;
     topology.push_back(3);
@@ -33,18 +39,17 @@ int main(void) {
     target.push_back(0.3f);
 
     int trainCount = 100;
-    while(trainCount--) {
+    while(nn.avgError() > 0.01) {
 
-        nn.feedForward(feed);
-        VecNode & outputNodes = nn.getLayers().back()->getNodes();
-        for (int n=0;n<outputNodes.size() ; n++) {
-            std::cout << outputNodes[n]->getOutput() << " ";
-        }
-        std::cout << std::endl;
-        
+        nn.feedForward(feed);    
         nn.backProp(target);
 
-        //std::cout << "Avg error: " <<  nn.avgError() << std::endl;
+        std::cout << "Avg error: " <<  nn.avgError() << std::endl;
+    }
+
+    VecNode & outputNodes = nn.getLayers().back()->getNodes();
+    for (int n=0;n<outputNodes.size() ; n++) {
+        std::cout << outputNodes[n]->getOutput() << " ";
     }
     
     //nn.debug();

@@ -25,10 +25,27 @@ public:
         return mWeights[i];
     }
 
+    inline void setWeight(int i, float weight) {
+        mWeights[i] = weight;
+    }
+
+    inline void setDeltaWeight(int i, float deltaWeight) {
+        mDeltaWeights[i] = deltaWeight;
+    }
+    
+    inline float getDeltaWeight(int i) {
+        return mDeltaWeights[i];
+    }
+
+
     void initWeights(int nextLayerSize);
 
     inline VecFloat & getWeights() {
         return mWeights;
+    }
+
+    inline VecFloat & getDeltaWeights() {
+        return mDeltaWeights;
     }
 
     void setBias(float bias);
@@ -55,5 +72,6 @@ private:
     float mDow;
     float mGradient;
     VecFloat mWeights;
+    VecFloat mDeltaWeights;
     
 };
