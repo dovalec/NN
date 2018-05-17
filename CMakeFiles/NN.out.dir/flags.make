@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -DNDEBUG
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/dc/dev/NN/./include 
+CXX_INCLUDES = -I/home/dc/dev/NN/./include -isystem /usr/local/include -isystem /usr/local/include/opencv 
 

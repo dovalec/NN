@@ -194,6 +194,11 @@ NN.out: CMakeFiles/NN.out.dir/src/Layer.cpp.o
 NN.out: CMakeFiles/NN.out.dir/src/Node.cpp.o
 NN.out: CMakeFiles/NN.out.dir/src/TransformFunc.cpp.o
 NN.out: CMakeFiles/NN.out.dir/build.make
+NN.out: /usr/local/lib/libopencv_highgui.so.3.4.1
+NN.out: /usr/local/lib/libopencv_videoio.so.3.4.1
+NN.out: /usr/local/lib/libopencv_imgcodecs.so.3.4.1
+NN.out: /usr/local/lib/libopencv_imgproc.so.3.4.1
+NN.out: /usr/local/lib/libopencv_core.so.3.4.1
 NN.out: CMakeFiles/NN.out.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dc/dev/NN/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable NN.out"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/NN.out.dir/link.txt --verbose=$(VERBOSE)

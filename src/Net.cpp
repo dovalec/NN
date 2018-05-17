@@ -40,14 +40,15 @@ void Net::calcRmse(VecFloat & target) {
     
     for (int n=0;n<targetSize;n++)
     {
+        std::cout << target[n] << " -> " << outpuNodes[n]->getOutput() << std::endl;
         float delta = target[n] - outpuNodes[n]->getOutput();
         mError += delta * delta;
     }
 
-    mError /= (float)targetSize - 1;
+    mError /= (float)targetSize;
     mError = sqrt(mError);
 
-    mAvgError = (mAvgError * mAvgErrorFactor + mError) / (mAvgErrorFactor + 1.0);
+    mAvgError = mError;//(mAvgError * mAvgErrorFactor + mError) / (mAvgErrorFactor + 1.0);
     
 }
 

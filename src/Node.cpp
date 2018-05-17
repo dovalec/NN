@@ -44,8 +44,9 @@ void Node::initWeights(int nextLayerSize) {
     {
         float w = (float)rand() / (float)RAND_MAX;
         //printf("%f\n",w);
-        mWeights.push_back(w);
-        mDeltaWeights.push_back(0);
+        //mWeights.push_back(w);
+        mWeights.push_back(0.0f);
+        mDeltaWeights.push_back(0.0f);
     }
 }
 void Node::feedForward(Layer * prevLayer, int i) {
@@ -53,13 +54,17 @@ void Node::feedForward(Layer * prevLayer, int i) {
     
     float act=activation(prevLayer, i);
     mOutputVal = transfer(act);
+    //std::cout << mId << ":" << mOutputVal << std::endl;
 }
 
 float Node::transfer(float activation) {
-    return mTransFunc.transform(activation);
+    float t = mTransFunc.transform(activation);
+    std::cout << t << " , " << activation << std::endl;
+    return t;
 }
 
-float Node::activation(Layer * prevLayer, int i) {
+float Node::
+activation(Layer * prevLayer, int i) {
     float sum = 0;
     VecNode & prevNodes = prevLayer->getNodes();
 

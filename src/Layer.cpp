@@ -134,10 +134,10 @@ void Layer::updateWeights(Layer *prevLayer)
         {
             Node * prevNode = prevLayer->getNode(p);
             float oldDelta = prevNode->getDeltaWeight(n);
-            float newDelta = ETA * prevNode->getOutput() * node->gradient() + ALPHA * oldDelta;
+            float newDelta = ETA * prevNode->getOutput() * node->gradient();// + ALPHA * oldDelta;
 
             prevNode->setDeltaWeight(n, newDelta);
-            prevNode->setWeight(n, prevNode->getWeight(n) + newDelta);
+            //prevNode->setWeight(n, prevNode->getWeight(n) + newDelta);
         }
     }
 }
