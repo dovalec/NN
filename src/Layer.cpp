@@ -125,8 +125,8 @@ float Layer::sumDow(Node *node, Layer *nextLayer)
 void Layer::updateWeights(Layer *prevLayer)
 {
 
-    float ETA = 0.15;
-    float ALPHA = 0.5;
+    float ETA = 0.15f;
+    float ALPHA = 0.5f;
 
     for (int n=0;n<mNodes.size();n++) {
         Node * node = mNodes[n];
@@ -134,17 +134,17 @@ void Layer::updateWeights(Layer *prevLayer)
         {
             Node * prevNode = prevLayer->getNode(p);
             float oldDelta = prevNode->getDeltaWeight(n);
-            float newDelta = ETA * prevNode->getOutput() * node->gradient();// + ALPHA * oldDelta;
+            float newDelta = ETA * prevNode->getOutput() * node->gradient() + ALPHA * oldDelta;
 
             prevNode->setDeltaWeight(n, newDelta);
-            //prevNode->setWeight(n, prevNode->getWeight(n) + newDelta);
+            prevNode->setWeight(n, prevNode->getWeight(n) + newDelta);
         }
     }
 }
 
 void Layer::setBias(float bias)
 {
-    mNodes.back()->setOutput(bias);
+    
 }
 
 void Layer::feedForward(Layer *prevLayer)

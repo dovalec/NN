@@ -52,7 +52,7 @@ public:
     void setBias(float bias);
     void feedForward(Layer * prevLayer, int i);
     float activation(Layer * prevLayer, int i);
-    float transfer(float activation);
+    float activationNormal(Layer * prevLayer, int i);
 
     inline float gradient() {
         return mGradient;

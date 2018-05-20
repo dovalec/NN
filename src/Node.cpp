@@ -13,7 +13,7 @@ Node::Node() {
      mOutputVal = 0;
      mGradient = 0;
      mBias = 0;
-     mTransFunc.setType(TF_EXP);
+     mTransFunc.setType(TF_ABS);
      
  }
  
@@ -42,40 +42,59 @@ void Node::setBias(float bias) {
 void Node::initWeights(int nextLayerSize) {
     for (int n=0 ; n < nextLayerSize ; n++)
     {
-        float w = (float)rand() / (float)RAND_MAX;
-        //printf("%f\n",w);
-        //mWeights.push_back(w);
-        mWeights.push_back(0.0f);
+        float w = ((float)rand() / (float)(RAND_MAX >> 1)) - 1.0f;
+        mWeights.push_back(w);
         mDeltaWeights.push_back(0.0f);
     }
+
 }
 void Node::feedForward(Layer * prevLayer, int i) {
     //std::cout << "Feed forward Node[ " << mId << " ]" << std::endl; 
     
     float act=activation(prevLayer, i);
-    mOutputVal = transfer(act);
+    mOutputVal = mTransFunc.transform(act);
+    //mOutputVal = act;
+    
     //std::cout << mId << ":" << mOutputVal << std::endl;
 }
 
-float Node::transfer(float activation) {
-    float t = mTransFunc.transform(activation);
-    std::cout << t << " , " << activation << std::endl;
-    return t;
-}
 
-float Node::
-activation(Layer * prevLayer, int i) {
-    float sum = 0;
+float Node::activation(Layer * prevLayer, int i) {
+    
     VecNode & prevNodes = prevLayer->getNodes();
+
+    float sum = 0.0f;
 
     for ( int n=0 ; n < prevNodes.size() ; n++)
     {
         Node * prevNode = prevNodes[n];
         sum += prevNode->getOutput() * prevNode->getWeight(i);
+        //std::cout << sum << std::endl;
+
     }
     
     return sum;
 }
+
+float Node::activationNormal(Layer * prevLayer, int i) {
+    float sum = 0;
+    VecNode & prevNodes = prevLayer->getNodes();
+
+    float sumWeights = 0.0f;
+    for ( int n=0 ; n < prevNodes.size() ; n++)
+    {   
+        sumWeights += prevNodes[n]->getWeight(i);
+    }
+
+    for ( int n=0 ; n < prevNodes.size() ; n++)
+    {
+        Node * prevNode = prevNodes[n];
+        sum += prevNode->getOutput() * (prevNode->getWeight(i) / sumWeights);
+    }
+    
+    return sum;
+}
+
 
 void Node::debug() {
     std::cout << "\t\t\tNode[ " << mId << " ] " << mOutputVal << std::endl; 
