@@ -24,7 +24,8 @@ public:
     void updateWeights();
     void init(VecTopology & topology);
     void debug();
-
+    void reset();
+    
     inline VecLayer & getLayers() {
         return mLayers;
     }

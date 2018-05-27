@@ -18,7 +18,7 @@ public:
         return mOutputVal;
     } 
 
-    inline float setOutput(float output) {
+    inline void setOutput(float output) {
         mOutputVal = output;
     }
 
@@ -64,6 +64,7 @@ public:
 
     void sumDow();
     void debug();
+    void reset();
    
 private:
     int mId;

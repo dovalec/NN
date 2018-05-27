@@ -166,3 +166,13 @@ void Layer::debug()
         node->debug();
     }
 }
+
+
+void Layer::reset()
+{
+    for (VecNodeIter iter = mNodes.begin(); iter != mNodes.end(); iter++)
+    {
+        Node *node = *iter;
+        node->reset();
+    }
+}

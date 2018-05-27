@@ -10,11 +10,8 @@ Node::Node() {
      mId = std::rand();
      //std::cout << "Constructed Node: " << mId << std::endl; 
          
-     mOutputVal = 0;
-     mGradient = 0;
-     mBias = 0;
-     mTransFunc.setType(TF_ABS);
-     
+    reset();
+
  }
  
 Node::~Node() {
@@ -40,6 +37,9 @@ void Node::setBias(float bias) {
 }
 
 void Node::initWeights(int nextLayerSize) {
+    mWeights.clear();
+    mDeltaWeights.clear();
+
     for (int n=0 ; n < nextLayerSize ; n++)
     {
         float w = ((float)rand() / (float)(RAND_MAX >> 1)) - 1.0f;
@@ -98,6 +98,13 @@ float Node::activationNormal(Layer * prevLayer, int i) {
 
 void Node::debug() {
     std::cout << "\t\t\tNode[ " << mId << " ] " << mOutputVal << std::endl; 
-    
 }
 
+void Node::reset() {
+
+    mOutputVal = 0;
+     mGradient = 0;
+     mBias = 0;
+     mTransFunc.setType(TF_ABS);
+     
+}

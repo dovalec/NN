@@ -47,6 +47,8 @@ cmath
 -
 stdlib.h
 -
+algorithm
+-
 
 /home/dc/dev/NN/src/Layer.cpp
 Layer.h
@@ -90,6 +92,8 @@ Net.h
 cstdlib
 -
 cmath
+-
+stdio.h
 -
 
 /home/dc/dev/NN/src/Node.cpp

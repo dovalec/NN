@@ -19,88 +19,51 @@ int gMouseX = 0;
 int gMouseY = 0;
 
 void testNN(Net &nn);
-int trainByVideo(Net &nn);
+int trainByVideo(Net &nn, std::string trainFileName );
 
-int SPAN_SIZE = 8;
-int RBG_LAYER_SIZE = SPAN_SIZE * 3;
-int PIXEL_BIAS = 128.0f;
+const int CHANNEL_INDEX = 2;
 
-int main(void)
+const int SPAN_SIZE = 32;
+
+const int LAYER_SIZE = 4;
+const int INPUT_LAYER_SIZE = 8;
+
+uint gSpanHistogramBins[INPUT_LAYER_SIZE];
+    
+void initSpanHistogramBins() {
+
+    for (int n=0 ; n<INPUT_LAYER_SIZE;n++) {
+        gSpanHistogramBins[n] = n * (256/INPUT_LAYER_SIZE);
+        std::cout << gSpanHistogramBins[n] << std::endl;
+    }
+}
+
+int main(int argc, char** argv)
 {
     time_t t;
 
     srand((unsigned)time(&t));
+    initSpanHistogramBins();
 
-    std::cout << "NN" << std::endl;
     Net nn;
 
     VecTopology topology;
-    topology.push_back(RBG_LAYER_SIZE);
-    topology.push_back(RBG_LAYER_SIZE);
-    topology.push_back(RBG_LAYER_SIZE);
-    topology.push_back(RBG_LAYER_SIZE);
+    topology.push_back(INPUT_LAYER_SIZE);
+    topology.push_back(LAYER_SIZE);
+    topology.push_back(LAYER_SIZE);
+    topology.push_back(LAYER_SIZE);
 
     topology.push_back(1);
 
     nn.init(topology);
     // nn.check();
 
-    testNN(nn);
-    //trainByVideo(nn);
+    //testNN(nn);
+    trainByVideo(nn, argv[1]);
 
     return 0;
 }
 
-void testNN(Net &nn) {
-
-    VecFloat target;
-    target.push_back(1.0);
-
-    VecFloat feedTrain;
-    for (int n = 0; n < RBG_LAYER_SIZE; n++)
-    {
-        float v = ((float)rand() / (float)(RAND_MAX >> 1)) - 1.0f;
-        feedTrain.push_back(v);
-    }
-
-   
-    
-    int count = 0;
-    while (nn.avgError() > 0.001)
-    {
-        nn.feedForward(feedTrain);
-        nn.backProp(target);
-        std::cout << "Avg error [" << count << "] : " << nn.avgError() << std::endl;
-        count++;
-    }
-
-    nn.debug();
-
-    int countSimilar = 0;
-    int TEST_SIZE = 1000000;
-
-    for (int t=0;t<TEST_SIZE ; t++) {
-        VecFloat feed;
-        for (int n = 0; n < RBG_LAYER_SIZE; n++)
-        {
-            float v = ((float)rand() / (float)(RAND_MAX >> 1)) - 1.0f;
-            //std::cout << v <<std::endl;
-
-            feed.push_back(v);
-        }
-        nn.feedForward(feed);
-        float out = nn.getLayers().back()->getNode(0)->getOutput();
-        //std::cout << out <<std::endl;
-
-        if (1.0f - out < 0.001f) {
-            countSimilar++;
-        }
-    }
-
-    std::cout << "Similar: " << countSimilar << " and Diff: " << (TEST_SIZE - countSimilar) << std::endl;
-
-   
-}
 
 void CallBackFunc(int event, int x, int y, int flags, void *userdata)
 {
@@ -124,17 +87,27 @@ void CallBackFunc(int event, int x, int y, int flags, void *userdata)
     }
 }
 
-cv::Mat edgeDetect(cv::Mat & src) {
-    cv::Mat gray, edge, draw;
-    cv::cvtColor(src, gray, CV_BGR2GRAY);
- 
-    cv::Canny( gray, edge, 50, 150, 3);
- 
-    edge.convertTo(draw, CV_8U);
-    return draw;
+void spanHistogramToLayerInput(uchar span[SPAN_SIZE], VecFloat &feed)
+{
+    uint bins[INPUT_LAYER_SIZE] = {0};
+
+    for (int n = 0; n < SPAN_SIZE; n++)
+    {
+        for (int r=1 ; r < INPUT_LAYER_SIZE;r++) {
+            if (span[n] < gSpanHistogramBins[r]) {
+                bins[r-1]+=1;
+                break;
+            }
+        }
+    }
+
+    for (int r=0 ; r < INPUT_LAYER_SIZE;r++) {
+        feed.push_back((float)bins[r] / (float)SPAN_SIZE);
+    }
+
 }
 
-int trainByVideo(Net &nn)
+int trainByVideo(Net &nn, std::string trainFileName )
 {
 
     VecFloat target;
@@ -143,7 +116,6 @@ int trainByVideo(Net &nn)
     // target.push_back(0.0f);
     // target.push_back(0.0f);
 
-    std::string trainFileName = "/home/dc/Videos/2018_0418_140633_002.MOV";
     cv::VideoCapture capVideo(trainFileName);
 
     if (!capVideo.isOpened())
@@ -167,10 +139,18 @@ int trainByVideo(Net &nn)
     int frameNum = 0;
     cv::Mat frameDisp;
     cv::Mat frameOrg;
+    cv::Mat frameCap;
 
-    capVideo >> frameOrg;
+    capVideo >> frameCap;
+    cv::cvtColor(frameCap, frameOrg, cv::COLOR_BGR2HSV);
 
-    bool train_working = false;
+    cv::Mat channels[3];
+    cv::split(frameOrg, channels);
+    frameOrg = channels[CHANNEL_INDEX];
+
+    bool span_checking = false;
+    bool span_training = false;
+    bool play_video = false;
 
     for (;;) //Show the image captured in the window and repeat
     {
@@ -184,19 +164,17 @@ int trainByVideo(Net &nn)
 
                 VecFloat feed;
 
+                uchar span[SPAN_SIZE];
                 for (int n = 0; n < SPAN_SIZE; n++)
                 {
-                    cv::Vec3b intensity = frameOrg.at<cv::Vec3b>(y, x + n);
-                    float blue = (float)intensity.val[0] / 255.0f + PIXEL_BIAS;
-                    float green = (float)intensity.val[1] / 255.0f + PIXEL_BIAS;
-                    float red = (float)intensity.val[2] / 255.0f + PIXEL_BIAS;
+                    uchar intensity = frameOrg.at<uchar>(y, x + n);
+                    //float value = (float)intensity / 128.0f  - 1.0f;
+                    //feed.push_back(value);
 
-                    feed.push_back(blue);
-                    feed.push_back(green);
-                    feed.push_back(red);
-
-                    //std::cout << blue << "," << green << "," << red << std::endl;
+                    span[n] = intensity;
                 }
+
+                spanHistogramToLayerInput(span, feed);
 
                 nn.feedForward(feed);
                 float out0 = nn.getLayers().back()->getNodes()[0]->getOutput();
@@ -204,13 +182,11 @@ int trainByVideo(Net &nn)
 
                 for (int n = 0; n < SPAN_SIZE; n++)
                 {
-                    cv::Vec3b intensity = frameOrg.at<cv::Vec3b>(y, x + n);
-                    
-                    //if (out0 > 0.999) {
-                    //    frameDisp.at<cv::Vec3b>(y, x + n) = 0.0;
-                    //} 
 
-                    frameDisp.at<cv::Vec3b>(y, x + n) = cv::Vec3b( 255.0f * out0, 255.0f * out0, 255.0f * out0 );
+                    if (out0 > 0.95)
+                    {
+                        frameDisp.at<uchar>(y, x + n) = 0; //uchar( 255.0f * out0, 255.0f * out0, 255.0f * out0 );
+                    }
                 }
                 /* 
                 float out1 = nn.getLayers().back()->getNodes()[1]->getOutput();
@@ -226,7 +202,7 @@ int trainByVideo(Net &nn)
                 {
                     // for (int n = 0; n < SPAN_SIZE; n++)
                     // {
-                    //     frameDisp.at<cv::Vec3b>( y, x+n) = cv::Vec3b(255,0,0);
+                    //     frameDisp.at<uchar>( y, x+n) = uchar(255,0,0);
                     // }
 
                     // std::cout << x << "," << y << ": ";
@@ -240,7 +216,7 @@ int trainByVideo(Net &nn)
             }
         }
 
-       // std::cout << std::endl;
+        // std::cout << std::endl;
 
         cv::imshow(WINID, frameDisp);
         char c = (char)cv::waitKey(1);
@@ -248,48 +224,80 @@ int trainByVideo(Net &nn)
         if (c == 27)
             break;
 
+        if (c == 'p')
+        {
+            play_video = !play_video;
+        }
+
         if (c == 't')
         {
-            train_working = !train_working;
+            span_training = !span_training;
         }
-        
-        if (train_working) {
+
+        if (c == 'r')
+        {
+            nn.reset();
+        }
+
+        if (c == 'c')
+        {
+            span_checking = !span_checking;
+        }
+
+        if (span_training || span_checking)
+        {
             VecFloat feed;
+            uchar span[SPAN_SIZE];
 
             for (int n = 0; n < SPAN_SIZE; n++)
             {
-                cv::Vec3b intensity = frameOrg.at<cv::Vec3b>(gMouseY, gMouseX + n);
-                float blue = (float)intensity.val[0] / 255.0f + PIXEL_BIAS;
-                float green = (float)intensity.val[1] / 255.0f + PIXEL_BIAS;
-                float red = (float)intensity.val[2] / 255.0f + PIXEL_BIAS;
-
-                feed.push_back(blue);
-                feed.push_back(green);
-                feed.push_back(red);
-                
-                //std::cout << blue << "," << green << "," << red << std::endl;
+                uchar intensity = frameOrg.at<uchar>(gMouseY, gMouseX + n);
+                span[n] = intensity;
             }
 
+            spanHistogramToLayerInput(span, feed);
+           
             //std::cout << gMouseY << " " << gMouseX << std::endl;
 
             nn.feedForward(feed);
-            nn.backProp(target);
-            std::cout << "Avg error: " << nn.avgError() << std::endl;
+
+            if (span_training)
+            {
+                nn.backProp(target);
+                //std::cout << "Avg error: " << nn.avgError() << std::endl;
+            }
+
+            if (span_checking)
+            {
+
+                for (int n = 0 ; n<feed.size() ; n++) {
+                    std::cout << feed[n] << ",";
+                }
+                std::cout << std::endl;
+
+                float out0 = nn.getLayers().back()->getNodes()[0]->getOutput();
+                //std::cout << "Out: " << out0 << std::endl;
+            }
         }
 
         if (c == 'q')
         {
             VecNode &outputNodes = nn.getLayers().back()->getNodes();
-            for (int n = 0; n < outputNodes.size(); n++)
+            for (uint n = 0; n < outputNodes.size(); n++)
             {
                 std::cout << outputNodes[n]->getOutput() << " ";
             }
             std::cout << std::endl;
         }
 
-        if (c == ' ')
+        if (c == ' ' || play_video)
         {
-            capVideo >> frameOrg;
+            capVideo >> frameCap;
+            cv::cvtColor(frameCap, frameOrg, cv::COLOR_BGR2HSV);
+
+            cv::Mat channels[3];
+            cv::split(frameOrg, channels);
+            frameOrg = channels[CHANNEL_INDEX];
 
             if (frameDisp.empty())
             {
@@ -298,7 +306,7 @@ int trainByVideo(Net &nn)
             }
 
             ++frameNum;
-            std::cout << "Frame: " << frameNum << "# ";
+            //std::cout << "Frame: " << frameNum << std::endl;
         }
     }
 

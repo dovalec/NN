@@ -41,7 +41,8 @@ public:
 
     void feedForward(Layer * prevLayer);
     void debug();
-
+    void reset();
+    
 private:
     VecNode mNodes;
     TransformFunc mTransformFunc;

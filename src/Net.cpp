@@ -2,12 +2,11 @@
 
 #include <cstdlib>
 #include <cmath>
+#include <stdio.h>
 
 Net::Net() {
     mId = std::rand();
-    mError = 0;
-    mAvgError = 1.0;
-    mAvgErrorFactor = 100;
+    reset();
 
     //std::cout << "Constructed Net: " << mId << std::endl; 
 
@@ -129,4 +128,23 @@ void Net::debug() {
         Layer * layer = *iter;
         layer->debug();
     }   
+}
+
+void Net::reset() {
+
+    mError = 0;
+    mAvgError = 1.0;
+    mAvgErrorFactor = 100;
+
+    for (VecLayerIter iter = mLayers.begin() ; iter != mLayers.end() ; iter++) {
+        Layer * layer = *iter;
+        layer->reset();
+    }   
+
+    if (mLayers.size() > 1) {
+        for (int n = 0; n < mLayers.size()-1 ; n++) {
+            printf("%d\n",n);
+            mLayers[n]->initWeights( mLayers[n+1]->getSize());
+        }
+    }
 }
